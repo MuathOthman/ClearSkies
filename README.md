@@ -15,12 +15,16 @@ https://discord.gg/srNM26xz
 
 ## Webpage Colors
 
-| Color             | Hex                                                                |
+| Hex             | Color                                                                |
 | ----------------- | ------------------------------------------------------------------ |
-| Primary #1 | ![#FFA69E](https://via.placeholder.com/10/FFA69E?text=+) #FFA69E |
-| Primary #2 | ![#FAF3DD](https://via.placeholder.com/10/FAF3DD?text=+) #FAF3DD |
-| Primary #3 | ![#B8F2E6](https://via.placeholder.com/10/B8F2E6?text=+) #B8F2E6 |
-| Primary #4 | ![#AED9E0](https://via.placeholder.com/10/AED9E0?text=+) #AED9E0 |
+| #FFA69E | <img valign='middle' alt='FFA69E' src='https://readme-swatches.vercel.app/FFA69E'/> |
+| #FAF3DD | <img valign='middle' alt='FAF3DD' src='https://readme-swatches.vercel.app/FAF3DD'/> |
+| #B8F2E6 | <img valign='middle' alt='B8F2E6' src='https://readme-swatches.vercel.app/B8F2E6'/> |
+| #AED9E0 | <img valign='middle' alt='AED9E0' src='https://readme-swatches.vercel.app/AED9E0'/> |
+
+
+
+
 
 
 # Python toteutus
