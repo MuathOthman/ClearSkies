@@ -8,18 +8,8 @@
 - [@muhissadik](https://www.github.com/muhissadik)
 
 
-## Python Packages
+# HTML toteutus
 
-#### mysql-connector-python
-
-https://dev.mysql.com/doc/connector-python/en/
-
-#### tabulate
-
-https://pypi.org/project/tabulate/
-
-#### geopy
-https://pypi.org/project/geopy/
 ## Webpage Colors
 
 | Color             | Hex                                                                |
@@ -32,13 +22,18 @@ https://pypi.org/project/geopy/
 
 # Python toteutus
 
+## Python Packages
 
+#### mysql-connector-python
 
-## Käytetyt PYTHON PACKAGES
+https://dev.mysql.com/doc/connector-python/en/
 
-- mysql-connector-python https://dev.mysql.com/doc/connector-python/en/
-- tabulate https://pypi.org/project/tabulate/
-- geopy https://pypi.org/project/geopy/
+#### tabulate
+
+https://pypi.org/project/tabulate/
+
+#### geopy
+https://pypi.org/project/geopy/
 
 ## Johdanto
 
@@ -68,3 +63,10 @@ Pelaaja saa tiedon kuluttamastaan CO2-päästöistä sekä jäljellä olevasta C
 
 ## Tietokannan rakenne
 ![lentopeliRelaatio (1)](https://user-images.githubusercontent.com/111856849/193352889-548ed744-4220-45e3-b214-606fbb93b933.png)
+
+# JavaScript toteutus
+
+# Uudet Ominaisuudet
+![Aicrafttoteutus](https://user-images.githubusercontent.com/111856849/204092352-3a8ed1b7-1487-475e-b7f1-31857b429b47.png)
+![CO2OSTO](https://user-images.githubusercontent.com/111856849/204092361-de95f5a2-7d63-43bd-8def-8b7563de0f06.png)
+![Round1](https://user-images.githubusercontent.com/111856849/204092371-7cd7c468-020d-4e20-8812-753df4c94cb4.png)
