@@ -35,6 +35,18 @@ https://pypi.org/project/tabulate/
 #### geopy
 https://pypi.org/project/geopy/
 
+#### flask
+
+https://flask.palletsprojects.com/en/2.2.x/
+
+#### json
+
+https://www.json.org/json-en.html
+
+#### responeses
+
+https://pypi.org/project/responses/
+
 ## Johdanto
 
 Projekti toteutetaan syksyllä 2022 laaditun projektisuunnitelman mukaisesti. Tässä dokumentissa käsitellään suunnittelemamme lentopelin yleisideaa ja toiminnallisia- sekä laadullisia vaatimuksia. Määrittelydokumentti on suunnattu ohjaamaan ryhmäämme toteutuksen aikana sekä helpottamaan pelin ymmärrystä asiakasta.
@@ -65,6 +77,16 @@ Pelaaja saa tiedon kuluttamastaan CO2-päästöistä sekä jäljellä olevasta C
 ![lentopeliRelaatio (1)](https://user-images.githubusercontent.com/111856849/193352889-548ed744-4220-45e3-b214-606fbb93b933.png)
 
 # JavaScript toteutus
+
+## JavaScript Packages
+
+#### Flask
+
+https://flask.palletsprojects.com/en/2.2.x/
+
+#### Requests
+
+https://pypi.org/project/requests/
 
 # Uudet Ominaisuudet
 ![Aicrafttoteutus](https://user-images.githubusercontent.com/111856849/204092352-3a8ed1b7-1487-475e-b7f1-31857b429b47.png)
