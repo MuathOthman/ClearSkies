@@ -7,6 +7,9 @@
 - [@Agrinsadon](https://www.github.com/Agrinsadon)
 - [@muhissadik](https://www.github.com/muhissadik)
 
+## Discord
+
+https://discord.gg/srNM26xz
 
 # HTML toteutus
 
