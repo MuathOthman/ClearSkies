@@ -23,10 +23,6 @@ https://discord.gg/srNM26xz
 | #AED9E0 | <img valign='middle' alt='AED9E0' src='https://readme-swatches.vercel.app/AED9E0'/> |
 
 
-
-
-
-
 # Python toteutus
 
 ## Python Packages
@@ -53,6 +49,21 @@ https://www.json.org/json-en.html
 #### responeses
 
 https://pypi.org/project/responses/
+
+# JavaScript toteutus
+
+## JavaScript Packages
+
+#### Flask
+
+https://flask.palletsprojects.com/en/2.2.x/
+
+#### Requests
+
+https://pypi.org/project/requests/
+
+# Määrittelydokumentti
+
 
 ## Johdanto
 
@@ -82,18 +93,6 @@ Pelaaja saa tiedon kuluttamastaan CO2-päästöistä sekä jäljellä olevasta C
 
 ## Tietokannan rakenne
 ![lentopeliRelaatio (1)](https://user-images.githubusercontent.com/111856849/193352889-548ed744-4220-45e3-b214-606fbb93b933.png)
-
-# JavaScript toteutus
-
-## JavaScript Packages
-
-#### Flask
-
-https://flask.palletsprojects.com/en/2.2.x/
-
-#### Requests
-
-https://pypi.org/project/requests/
 
 # Uudet Ominaisuudet
 ![Aicrafttoteutus](https://user-images.githubusercontent.com/111856849/204092352-3a8ed1b7-1487-475e-b7f1-31857b429b47.png)
