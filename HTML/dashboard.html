@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lentopeli</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+<div class="container">
+  <aside>
+    <div class="top">
+      <div class="logo">
+          <img src="../CSS/images/logo.png" alt="">
+          <h2>Clear<span class="danger">Skies</span> </h2>
+        </div>
+      <div class="close" id="close-btn">
+        <span class="material-icons-sharp">close</span>
+      </div>
+    </div>
+    <div class="sidebar">
+      <a href="#" class="active">
+        <span class="material-icons-sharp">dashboard</span>
+        <h3>Dashboard</h3>
+      </a>
+      <a href="#">
+        <span class="material-icons-sharp">flight</span>
+        <h3>Flights</h3>
+      </a>
+      <a href="#">
+        <span class="material-icons-sharp">travel_explore</span>
+        <h3>Airport</h3>
+      </a>
+      <a href="#">
+        <span class="material-icons-sharp">leaderboard</span>
+        <h3>Analytics</h3>
+      </a>
+      <a href="#">
+        <span class="material-icons-sharp">email</span>
+        <h3>Messages</h3>
+        <span class="message-count">0</span>
+      </a>
+      <a href="#"><span class="material-icons-sharp">info</span>
+        <h3>Guide</h3>
+      </a>
+      <a href="#">
+        <span class="material-icons-sharp">settings</span>
+        <h3>Settings</h3>
+      </a>
+      <a href="#">
+        <span class="material-icons-sharp">logout</span>
+        <h3>Log Out</h3>
+      </a>
+    </div>
+  </aside>
+  <main>
+    <h1>Dashboard</h1>
+
+    <div class="date">
+      <input type="date">
+    </div>
+
+    <div class="insights">
+      <!------------------------WEATHER------------------------>
+      <div class="weather">
+        <span class="material-icons-sharp">nights_stay</span>
+        <div class="middle">
+          <div class="left">
+            <h3>Weather</h3>
+            <h1>Muath</h1>
+          </div>
+          <div class="progress">
+            <svg>
+              <circle cx='38' cy='38' r='36'></circle>
+            </svg>
+            <div class="number">
+              <p>81%</p>
+            </div>
+          </div>
+        </div>
+        <small class="text-muted">Live data</small>
+      </div>
+      <!------------------------Money------------------------>
+      <div class="money">
+        <span class="material-icons-sharp">account_balance_wallet</span>
+        <div class="middle">
+          <div class="left">
+            <h3>Money</h3>
+            <h1>Muath</h1>
+          </div>
+          <div class="progress">
+            <svg>
+              <circle cx='38' cy='38' r='36'></circle>
+            </svg>
+            <div class="number">
+              <p>500$</p>
+            </div>
+          </div>
+        </div>
+        <small class="text-muted">Live data</small>
+      </div>
+      <!------------------------co2------------------------>
+      <div class="co2">
+        <span class="material-icons-sharp">co2</span>
+        <div class="middle">
+          <div class="left">
+            <h3>co2</h3>
+            <h1>Muath</h1>
+          </div>
+          <div class="progress">
+            <svg>
+              <circle cx='38' cy='38' r='36'></circle>
+            </svg>
+            <div class="number">
+              <p>853g/km</p>
+            </div>
+          </div>
+        </div>
+        <small class="text-muted">Live data</small>
+      </div>
+    </div>
+
+  </main>
+</div>
+</body>
+</html>
