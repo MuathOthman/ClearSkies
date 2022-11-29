@@ -2,6 +2,8 @@ from flask import Flask, Response
 import mysql.connector
 from flask_cors import CORS
 lista = []
+icao_lista = []
+city_lista = []
 import requests
 import json
 from flask_cors import CORS
@@ -29,19 +31,19 @@ def code(name):
             tuos = kursori.fetchall()
             for rivi in tuos:
                 print(f"ICAO: {rivi[0]}")
-                lista.append(rivi[0])
+                icao_lista.append(rivi[0])
             sql = "SELECT municipality FROM airport"
-            sql += " WHERE ident= '" + lista[0] + "'"
+            sql += " WHERE ident= '" + icao_lista[-1] + "'"
             print(sql)
             kursori = yhteys.cursor()
             kursori.execute(sql)
             tuos = kursori.fetchall()
             for rivi in tuos:
                 print(f"Municipality: {rivi[0]}")
-                lista.append(rivi[0])
+                city_lista.append(rivi[0])
             api_koodi = "155ede50dd2196d8e713fcae93acae99"
             url = "http://api.openweathermap.org/data/2.5/weather?"
-            koko_url = url + "appid=" + api_koodi + "&q=" + lista[1]
+            koko_url = url + "appid=" + api_koodi + "&q=" + city_lista[-1]
             vastaus = requests.get(koko_url)
             if vastaus.status_code == 200:
                 print(koko_url)
