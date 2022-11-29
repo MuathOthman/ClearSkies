@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+	<meta charset="UTF-8">
+    <title>Search Bar</title>
+    <style>
+        .boxContainer
+        {
+            margin:auto;
+            margin-top:20%;
+            position: relative;
+            width: 300px;
+            height: 42px;
+            border: 4px solid #2980b9;
+            padding: 0 10px;
+            border-radius: 50px;
+        }
+        .elementsContainer
+        {
+            width: 100%;
+            height: 100%;
+            vertical-align: middle;
+        }
+        .search
+        {
+            border: none;
+            height: 100%;
+            width: 100%;
+            padding: 0 5px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-family:"Nunito";
+            color: #424242;
+            font-weight: 500;
+        }
+        .search:focus
+        {
+            outline: none;
+        }
+        .material-icons
+        {
+            font-size: 26px;
+            color:#2980b9;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="boxContainer">
+        <table class="elementsContainer">
+            <tr>
+                <td>
+                    <input type="text" placeholder="Search"
+                    class="search">
+                </td>
+                <td>
+                    <a href="#"><i class="material-icons">search</i>
+                        </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
