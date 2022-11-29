@@ -1,4 +1,4 @@
-async function getAirportData(name) {
+async function wallet(name) {
   const response = await fetch('http://127.0.0.1:5000/wallet/' + name);
   console.log('response', response);
   const data = await response.json();
@@ -7,10 +7,7 @@ async function getAirportData(name) {
 }
 async function main() {
   const name = prompt('Enter your name:');
-  // async funktio palauttaa promisen
-  const airportData = await getAirportData(name);
-  console.log('määrä', airportData);
-  document.querySelector('#p').innerHTML = name+ ' has ' + JSON.stringify(airportData.money) + '$ in the wallet.';
-
+  const budget = await wallet(name);
+  document.querySelector('#p').innerHTML = name+ ' has ' + JSON.stringify(budget.money) + '$ in the wallet.';
 }
 main();
