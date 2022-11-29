@@ -8,6 +8,6 @@ async function wallet(name) {
 async function main() {
   const name = prompt('Enter your name:');
   const budget = await wallet(name);
-  document.querySelector('#balance').innerHTML = JSON.stringify(budget.money);
+  document.querySelector('#balance').innerHTML = JSON.stringify(budget.money) + '$';
 }
 main();
