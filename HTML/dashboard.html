@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <title>Lentopeli</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/style-home.css">
+    <script src="../JAVASCRIPT/weather.js" defer></script>
+    <script src="../JAVASCRIPT/money.js" defer></script>
 </head>
 <body>
 <div class="container">
@@ -12,7 +14,7 @@
     <div class="top">
       <div class="logo">
           <img src="../CSS/images/logo.png" alt="">
-          <h2>Clear<span class="danger">Skies</span> </h2>
+          <h2>Clear<span class="danger">Skies</span></h2>
         </div>
       <div class="close" id="close-btn">
         <span class="material-icons-sharp">close</span>
@@ -27,7 +29,7 @@
         <span class="material-icons-sharp">flight</span>
         <h3>Flights</h3>
       </a>
-      <a href="#">
+      <a href="airport.html">
         <span class="material-icons-sharp">travel_explore</span>
         <h3>Airport</h3>
       </a>
@@ -38,7 +40,7 @@
       <a href="#">
         <span class="material-icons-sharp">email</span>
         <h3>Messages</h3>
-        <span class="message-count">0</span>
+        <span class="message-count"></span>
       </a>
       <a href="#"><span class="material-icons-sharp">info</span>
         <h3>Guide</h3>
@@ -54,11 +56,8 @@
     </div>
   </aside>
   <main>
-    <h1>Dashboard</h1>
 
-    <div class="date">
-      <input type="date">
-    </div>
+      <h1 class="city"></h1>
 
     <div class="insights">
       <!------------------------WEATHER------------------------>
@@ -67,37 +66,29 @@
         <div class="middle">
           <div class="left">
             <h3>Weather</h3>
-            <h1>Muath</h1>
+            <h1 class="desc"></h1>
           </div>
           <div class="progress">
-            <svg>
-              <circle cx='38' cy='38' r='36'></circle>
-            </svg>
             <div class="number">
-              <p>81%</p>
+              <p class="degree"></p>
             </div>
           </div>
         </div>
-        <small class="text-muted">Live data</small>
       </div>
       <!------------------------Money------------------------>
       <div class="money">
         <span class="material-icons-sharp">account_balance_wallet</span>
         <div class="middle">
           <div class="left">
-            <h3>Money</h3>
-            <h1>Muath</h1>
+            <h3>Available</h3>
+            <h1>Balance</h1>
           </div>
           <div class="progress">
-            <svg>
-              <circle cx='38' cy='38' r='36'></circle>
-            </svg>
             <div class="number">
-              <p>500$</p>
+              <p id="balance"></p>
             </div>
           </div>
         </div>
-        <small class="text-muted">Live data</small>
       </div>
       <!------------------------co2------------------------>
       <div class="co2">
@@ -105,22 +96,105 @@
         <div class="middle">
           <div class="left">
             <h3>co2</h3>
-            <h1>Muath</h1>
+            <h1>Consumed</h1>
           </div>
           <div class="progress">
-            <svg>
-              <circle cx='38' cy='38' r='36'></circle>
-            </svg>
             <div class="number">
-              <p>853g/km</p>
+              <p class="consumed">853kg</p>
             </div>
           </div>
         </div>
-        <small class="text-muted">Live data</small>
       </div>
     </div>
-
+    <!------------------------Map------------------------>
+          <div class="map">
+            <h2>Plan Your Flight</h2>
+            <table>
+              <tbody>
+              <tr>
+                <td></td>
+                <td class="warning"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="warning"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="warning"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="warning"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="warning"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="warning"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="warning"></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
   </main>
+  <!------------------------End Of Main------------------------>
+
+  <div class="right">
+     <div class="top">
+       <button id="menu-btn">
+          <span class="material-icons-sharp">menu</span>
+       </button>
+       <div class="theme-toggler">
+         <span class="material-icons-sharp active">light_mode</span>
+         <span class="material-icons-sharp">dark_mode</span>
+       </div>
+       <div class="profile">
+         <div class="info">
+           <p>Hey, <b>Muath</b></p>
+           <small class="text-muted">khaleel673</small>
+         </div>
+         <div class="profile-photo">
+           <img src="../CSS/images/profile-Muath.png" alt="Profile Picture">
+         </div>
+       </div>
+     </div>
+    <!------------------------End Of TOP------------------------>
+  <div class="leaderboard">
+    <h2>Leaderboard</h2>
+    <div class="updates">
+      <div class="update">
+        <div class="profile-photo">
+          <img src="/CSS/images/profile-2.jpg">
+        </div>
+        <div class="message">
+          <p><b>Mikko Mikkonen</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </div>
+      </div>
+      <div class="update">
+        <div class="profile-photo">
+          <img src="/CSS/images/profile-3.jpg">
+        </div>
+        <div class="message">
+          <p><b>Tuula Tullinen</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </div>
+      </div>
+      <div class="update">
+        <div class="profile-photo">
+          <img src="/CSS/images/profile-4.jpg">
+        </div>
+        <div class="message">
+          <p><b>Santeri Santtinen</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
 </div>
 </body>
 </html>
