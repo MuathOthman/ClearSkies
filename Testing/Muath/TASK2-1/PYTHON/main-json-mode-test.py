@@ -51,7 +51,7 @@ def code(name):
                     print(f"Description: {i['main']}")
             temprature = (vastaus_json['main']['temp'] - 273.15)
             print(f"Temprature: {int(temprature)} °C")
-            answer = {"Description": f"{i['main']}", "Temperature": f"{vastaus_json['main']['temp'] - 273.15}"}
+            answer = {"Description": f"{i['main']}", "Temperature": f"{round(vastaus_json['main']['temp'] - 273.15)}"}
             print(answer)
             response_json = json.dumps(answer)
             return Response(response=response_json, status=200, mimetype="application/json")
