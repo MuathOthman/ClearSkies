@@ -1,6 +1,14 @@
-let icao = prompt('Give ICAO')
 
-  fetch('http://127.0.0.1:3000/kentta/'+ icao)
+
+
+
+
+const button = document.querySelector('.button')
+
+button.addEventListener('click', function(){
+  let country = document.getElementById("search").value
+  console.log(country)
+  fetch('http://127.0.0.1:3000/kentta/'+ country)
   .then(function(response) {
     return response.json()
   })
@@ -16,9 +24,10 @@ let icao = prompt('Give ICAO')
             `;
     }
   console.log(out)
+
     placeholder.innerHTML = out;
   })
-
+})
 
 
 
