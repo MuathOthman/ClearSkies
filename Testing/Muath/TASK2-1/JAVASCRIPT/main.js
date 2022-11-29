@@ -29,4 +29,5 @@ async function main() {
     p.innerText += data['Temperature'];
     target.append(p)
     console.log('results', data)
+    #run
   }*/
