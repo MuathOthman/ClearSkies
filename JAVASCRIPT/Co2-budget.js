@@ -12,7 +12,8 @@ function renderHTML(data) {
 }
 
 async function main() {
-  let icaoInput = document.getElementById('namehtml').value;
+  let icaoInput = localStorage.getItem("textvalue");
+  console.log(icaoInput)
   const aiportData = await budget(icaoInput);
   console.log('Ariport data:', aiportData);
   renderHTML(aiportData);
