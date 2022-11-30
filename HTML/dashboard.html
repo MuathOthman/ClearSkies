@@ -5,7 +5,7 @@
     <title>Lentopeli</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/style-home.css">
-    <script src="../Testing/Muath/TASK2-1/JAVASCRIPT/main.js" defer></script>
+    <script type="module" src="../JAVASCRIPT/main.js" defer></script>
 
 </head>
 <body>
@@ -49,7 +49,7 @@
         <span class="material-icons-sharp">settings</span>
         <h3>Settings</h3>
       </a>
-      <a href="#">
+      <a href="file:///Users/muathkhaleel/Documents/Metropolia/TXK22S1-D/Ohjelmisto%202/Software/ClearSkies_H-ryhma%CC%88/Testing/Agrin/TASK4/log.html">
         <span class="material-icons-sharp">logout</span>
         <h3>Log Out</h3>
       </a>
@@ -100,7 +100,7 @@
           </div>
           <div class="progress">
             <div class="number">
-              <p class="consumed">853kg</p>
+              <p class="consumed" id="consumed"></p>
             </div>
           </div>
         </div>
@@ -156,8 +156,9 @@
        </div>
        <div class="profile">
          <div class="info">
-           <p>Hey, <b>Muath</b></p>
-           <small class="text-muted">khaleel673</small>
+           <p id="namehtml"></p>
+           <p>Hey, <span class="namehtml"></span>!</p>
+           <small class="text-muted"></small>
          </div>
          <div class="profile-photo">
            <img src="../CSS/images/profile-Muath.png" alt="Profile Picture">
