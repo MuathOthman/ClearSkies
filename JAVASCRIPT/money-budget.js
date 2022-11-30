@@ -1,4 +1,3 @@
-
 async function budget(name){
   const response = await fetch('http://127.0.0.1:5000/co2_budget/' + name);
   console.log('response', response)
@@ -9,11 +8,11 @@ async function budget(name){
 
 function renderHTML(data) {
     const p = document.getElementById('consumed');
-    p.innerText = data['co2_budget'] + 'kg';
+    p.innerText = data['co2_budget'] + ' kg';
 }
 
 async function main() {
-  let icaoInput = prompt('Mikä kenttä (ICAO)?');
+  let icaoInput = document.getElementById('namehtml').value;
   const aiportData = await budget(icaoInput);
   console.log('Ariport data:', aiportData);
   renderHTML(aiportData);

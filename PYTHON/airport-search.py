@@ -38,6 +38,7 @@ def kentta(nimi):
                 airport_json["icao"] = i[-1]
                 samples.append(airport_json)
         response_json = json.dumps(samples)
+        samples.clear()
         return Response(response=response_json, status=200, mimetype="application/json")
     except ValueError:
         text = "Invalid input value, a not number"
