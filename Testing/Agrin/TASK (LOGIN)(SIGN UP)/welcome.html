@@ -2,11 +2,29 @@
 <html lang="en" and dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <title>Sign up Form</title>
-    <link rel="stylesheet" href="sign.css">
-    <script src="sign.js"></script>
+    <title>Popup Form</title>
+    <link rel="stylesheet" href="welcome.css">
+    <script src="welcome.js"></script>
 </head>
 <body>
+<div class="container">
+ <button type="submit" class="btn" onclick="openPopup()">Submit</button>
+    <div class="popup" id="popup">
+        <img src="">
+        <h2>Welcome</h2>
+        <p>Welcome to ClearSkies. May the winner be the one who collects 8 different weathers and don't use so much CO2</p>
+        <button type="button" onclick="closePopup()">Ok</button>
+    </div>
+</div>
+<script>
+  let popup = document.getElementById("popup");
 
+  function openPopup(){
+    popup.classList.add("open-popup")
+  }
+  function closePopup(){
+    popup.classList.remove("open-popup")
+  }
+</script>
 </body>
 </html>
