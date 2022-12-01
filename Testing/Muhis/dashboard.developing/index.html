@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lentopeli</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <script src="../Testing/Muath/TASK2-1/JAVASCRIPT/main.js" defer></script>
+    <link rel="stylesheet" href="style-home.css">
+  <link rel="stylesheet" href="index.css">
+
+</head>
+<body>
+<div class="container">
+  <aside>
+    <div class="top">
+      <div class="logo">
+          <img src="images/logo.png" alt="">
+          <h2>Clear<span class="danger">Skies</span></h2>
+        </div>
+      <div class="close" id="close-btn">
+        <span class="material-icons-sharp">close</span>
+      </div>
+    </div>
+    <div class="sidebar">
+      <a href="#" class="active">
+        <span class="material-icons-sharp">dashboard</span>
+        <h3>Dashboard</h3>
+      </a>
+      <a href="#">
+        <span class="material-icons-sharp">flight</span>
+        <h3>Flights</h3>
+      </a>
+      <a href="airport.html">
+        <span class="material-icons-sharp">travel_explore</span>
+        <h3>Airport</h3>
+      </a>
+      <a href="#">
+        <span class="material-icons-sharp">leaderboard</span>
+        <h3>Analytics</h3>
+      </a>
+      <a href="#">
+        <span class="material-icons-sharp">email</span>
+        <h3>Messages</h3>
+        <span class="message-count"></span>
+      </a>
+      <a href="#"><span class="material-icons-sharp">info</span>
+        <h3>Guide</h3>
+      </a>
+      <a href="#">
+        <span class="material-icons-sharp">settings</span>
+        <h3>Settings</h3>
+      </a>
+      <a href="#">
+        <span class="material-icons-sharp">logout</span>
+        <h3>Log Out</h3>
+      </a>
+    </div>
+  </aside>
+  <main>
+
+      <h1 class="city"></h1>
+
+    <div class="insights">
+      <!------------------------WEATHER------------------------>
+      <div class="weather">
+        <span class="material-icons-sharp">nights_stay</span>
+        <div class="middle">
+          <div class="left">
+            <h3>Weather</h3>
+            <h1 class="desc" id="desc"></h1>
+          </div>
+          <div class="progress">
+            <div class="number">
+              <p class="degree" id="degree"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!------------------------Money------------------------>
+      <div class="money">
+        <span class="material-icons-sharp">account_balance_wallet</span>
+        <div class="middle">
+          <div class="left">
+            <h3>Available</h3>
+            <h1>Balance</h1>
+          </div>
+          <div class="progress">
+            <div class="number">
+              <p class="balance" id="balance"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!------------------------co2------------------------>
+      <div class="co2">
+        <span class="material-icons-sharp">co2</span>
+        <div class="middle">
+          <div class="left">
+            <h3>co2</h3>
+            <h1>Consumed</h1>
+          </div>
+          <div class="progress">
+            <div class="number">
+              <p class="consumed">853kg</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!------------------------Map------------------------>
+          <div class="map">
+            <h2>Plan Your Flight</h2>
+            <table>
+              <tbody>
+              <tr>
+                <td></td>
+                <td class="warning"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="warning"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="warning"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="warning"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="warning"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="warning"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="warning"></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+  </main>
+  <!------------------------End Of Main------------------------>
+
+  <div class="right">
+    <div class="top">
+      <button id="menu-btn">
+        <span class="material-icons-sharp">menu</span>
+      </button>
+      <div class="theme-toggler">
+        <span class="material-icons-sharp active">light_mode</span>
+        <span class="material-icons-sharp">dark_mode</span>
+      </div>
+      <div class="profile">
+        <div class="info">
+          <p>Hey, <b>Daniel</b></p>
+          <small class="text-muted">Admin</small>
+        </div>
+        <div class="profile-photo">
+          <img src="./images/profile-1.jpg">
+        </div>
+      </div>
+    </div>
+    <!-- END OF TOP -->
+    <div class="recent-updates">
+      <h2>Recent Updates</h2>
+      <div class="updates">
+        <div class="update">
+          <div class="profile-photo">
+            <img src="./images/profile-2.jpg">
+          </div>
+          <div class="message">
+            <p><b>Mike Tyson</b> received his order or Night lion tech gps drone</p>
+            <small class="text-muted">2 Minutes ago</small>
+          </div>
+        </div>
+        <div class="update">
+          <div class="profile-photo">
+            <img src="./images/profile-4.jpg">
+          </div>
+          <div class="message">
+            <p><b>Mike Tyson</b> received his order or Night lion tech gps drone</p>
+            <small class="text-muted">2 Minutes ago</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!------------------- END OF RECENT UPDATES ------------------>
+    <div class="sales-analytics">
+      <h2>Sales Analytics</h2>
+      <div class="item online">
+        <div class="icon">
+          <span class="material-icons-sharp">local_mall
+          </span>
+        </div>
+        <div class="right">
+          <div class="info">
+            <h3>OFFLINE ORDERS</h3>
+            <small class="text-muted">Last 24 Hours</small>
+          </div>
+          <h5 class="danger">-17%</h5>
+          <h3>1100</h3>
+        </div>
+      </div>
+      <div class="item customers">
+        <div class="icon">
+          <span class="material-icons-sharp">person
+          </span>
+        </div>
+        <div class="right">
+          <div class="info">
+            <h3>NEW CUSTOMERS</h3>
+            <small class="text-muted">Last 24 Hours</small>
+          </div>
+          <h5 class="success">+25%</h5>
+          <h3>849</h3>
+        </div>
+      </div>
+      <div class="item add-product">
+        <div>
+          <span class="material-icons-sharp">add</span>
+          <h3>Add Product</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="index.js"></script>
+<script src="orders.js"></script>
+</body>
+</html>
