@@ -7,7 +7,7 @@ async function budget(name){
 }
 
 function renderHTML(data) {
-    const p = document.getElementById('consumed');
+    const p = document.getElementById('consumed-balance');
     p.innerText = data['co2_budget'] + ' kg';
 }
 
