@@ -402,3 +402,7 @@ main .airport-search table:hover {
     border-radius: 25px;
     box-shadow: var(--box-shadow);
 }
+
+.blue-icon {
+    background-color: #111e88;
+}
