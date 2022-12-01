@@ -1,6 +1,6 @@
 # Clear Skies
 
-## Porttinumerot
+## Porttinumerot (HUOM! PYTHON)
 
 - CO2-budget (http://127.0.0.1:3000/)
 - Login (http://127.0.0.1:3010/)
