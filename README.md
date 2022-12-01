@@ -6,6 +6,7 @@
 - Login (http://127.0.0.1:3010/)
 - Money (http://127.0.0.1:3030/)
 - Weather (http://127.0.0.1:3040/)
+- Location (http://127.0.0.1:3050/)
 
 
 ## Tekijät
