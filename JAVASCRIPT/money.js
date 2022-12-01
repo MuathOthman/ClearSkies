@@ -1,5 +1,5 @@
 async function wallet(name) {
-  const response = await fetch('http://127.0.0.1:5020/wallet/' + name);
+  const response = await fetch('http://127.0.0.1:3030/wallet/' + name);
   console.log('response', response);
   const data = await response.json();
   console.log('data', data)

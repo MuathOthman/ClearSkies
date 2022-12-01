@@ -2,7 +2,7 @@ document.getElementById('namehtml').innerHTML=localStorage.getItem("textvalue");
 
 
 async function getAirportData(icao){
-  const response = await fetch('http://127.0.0.1:4900/saa/'+ icao);
+  const response = await fetch('http://127.0.0.1:3040/saa/'+ icao);
   console.log('response', response)
   const data = await response.json()
   console.log('data', data);
