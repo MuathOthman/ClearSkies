@@ -396,3 +396,9 @@ main .airport-search table{
 main .airport-search table:hover {
     box-shadow: none;
 }
+#map {
+    width: 960px;
+    height: 500px;
+    border-radius: 25px;
+    box-shadow: var(--box-shadow);
+}
