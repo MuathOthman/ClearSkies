@@ -1,5 +1,13 @@
 # Clear Skies
 
+## Porttinumerot (HUOM! PYTHON)
+
+- CO2-budget (http://127.0.0.1:3000/)
+- Login (http://127.0.0.1:3010/)
+- Money (http://127.0.0.1:3030/)
+- Weather (http://127.0.0.1:3040/)
+
+
 ## Tekijät
 
 - [@isakovero](https://www.github.com/isakovero)
