@@ -13,8 +13,8 @@ button.addEventListener('click', function(){
     for (let m of data) {
         out += `
               <tr>
-                <td>'${m.name}'</td>
-                <td className="warning">'${m.icao}'</td>
+                <td>${m.name}</td>
+                <td className="warning">${m.icao}</td>
               </tr>
             `;
     }
