@@ -3,7 +3,7 @@ const button = document.querySelector('.button')
 button.addEventListener('click', function(){
   let country = document.getElementById("search").value
   console.log(country)
-  fetch('http://127.0.0.1:3000/kentta/'+ country)
+  fetch('http://127.0.0.1:3080/kentta/'+ country)
   .then(function(response) {
     return response.json()
   })

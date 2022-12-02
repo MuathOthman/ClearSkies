@@ -21,7 +21,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 def code(name):
     try:
         sql = "SELECT latitude_deg, longitude_deg FROM airport, game"
-        sql += " where location = ident and screen_name = '" + name + "'"
+        sql += " where location = ident = '" + name + "'"
         kursori = yhteys.cursor()
         kursori.execute(sql)
         tulos = kursori.fetchall()
@@ -41,7 +41,7 @@ def code(name):
 
 
 if __name__ == '__main__':
-    app.run(use_reloader=True, host='127.0.0.1', port=3060)
+    app.run(use_reloader=True, host='127.0.0.1', port=3070)
 
 
 
