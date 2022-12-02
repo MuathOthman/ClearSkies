@@ -7,6 +7,9 @@
 - Money (http://127.0.0.1:3030/)
 - Weather (http://127.0.0.1:3040/)
 - Location (http://127.0.0.1:3060/)
+- Next location (http://127.0.0.1:3070/)
+- Leaderboard (http://127.0.0.1:3090/)
+
 
 
 ## Tekijät
