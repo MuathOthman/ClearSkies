@@ -9,8 +9,8 @@ yhteys = mysql.connector.connect(
          host='127.0.0.1',
          port= 3306,
          database='lentopeli',
-         user='testi',
-         password='12345',
+         user='root',
+         password='',
          autocommit=True
          )
 
@@ -20,8 +20,8 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route('/location/<name>')
 def code(name):
     try:
-        sql = "SELECT latitude_deg, longitude_deg FROM airport, game"
-        sql += " where location = ident = '" + name + "'"
+        sql = "SELECT latitude_deg, longitude_deg FROM airport"
+        sql += " where ident = '" + name + "'"
         kursori = yhteys.cursor()
         kursori.execute(sql)
         tulos = kursori.fetchall()
