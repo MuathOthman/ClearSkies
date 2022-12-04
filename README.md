@@ -9,6 +9,7 @@
 - Location (http://127.0.0.1:3060/)
 - Next location (http://127.0.0.1:3070/)
 - Leaderboard (http://127.0.0.1:3090/)
+- Registration (http://127.0.0.1:4320/)
 
 
 
