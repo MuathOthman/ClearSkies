@@ -1,4 +1,5 @@
-var map = L.map('map').setView([40.7128,-74.0060], 4);
+const latlangs = []
+var map = L.map('map').setView([60.1699,24.9384], 4);
 var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 });
@@ -42,8 +43,8 @@ function renderHTML(data) {
     var singleMarker = L.marker([data['Latitude'], data['Longitude']]);
     console.log(singleMarker)
     singleMarker.addTo(map);
+    latlangs.push(singleMarker.getLatLng());
 
-    map = L.map('map').setView([data['Latitude'], data['Longitude']], 4);
 
 }
 
@@ -58,18 +59,21 @@ const button = document.querySelector('.button')
 button.addEventListener('click', secondICAO)
 
 async function secondICAO() {
+  let name = localStorage.getItem("textvalue");
   let icao = document.getElementById("search").value
   console.log(icao)
-  const response = await fetch('http://127.0.0.1:3070/location/'+ icao);
+  const response = await fetch('http://127.0.0.1:3070/location?nimi='+ name + '&icao=' + icao);
   console.log('response', response)
   const icao_data = await response.json()
   console.log('data', icao_data);
-  var singleMarker1 = L.marker([icao_data['Latitude'], icao_data['Longitude']]);
+  const singleMarker1 = L.marker([icao_data['Latitude'], icao_data['Longitude']]);
   console.log(singleMarker1)
   singleMarker1.addTo(map);
-
+  latlangs.push(singleMarker1.getLatLng());
+  var polyline = L.polyline(latlangs, {color: 'red'}).addTo(map);
+  // zoom the map to the polyline
+  map.fitBounds(polyline.getBounds());
 }
-
 
 
 

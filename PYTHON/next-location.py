@@ -1,4 +1,4 @@
-from flask import Flask, Response
+from flask import Flask, Response, request
 import mysql.connector
 from flask_cors import CORS
 import requests
@@ -9,19 +9,31 @@ yhteys = mysql.connector.connect(
          host='127.0.0.1',
          port= 3306,
          database='lentopeli',
-         user='root',
-         password='',
+         user='testi',
+         password='12345',
          autocommit=True
          )
 
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
-@app.route('/location/<name>')
-def code(name):
+
+
+def newlocation(icao, nimi):
+    sql = "UPDATE game set location= '" + icao + "'"
+    sql += "Where screen_name = '" + nimi + "'"
+    kursori2 = yhteys.cursor()
+    kursori2.execute(sql)
+    tulos2 = kursori2.fetchall()
+@app.route('/location')
+def code():
     try:
+        args = request.args
+        nimi = args.get("nimi")
+        icao = args.get("icao")
+        newlocation(icao, nimi)
         sql = "SELECT latitude_deg, longitude_deg FROM airport"
-        sql += " where ident = '" + name + "'"
+        sql += " where ident = '" + icao + "'"
         kursori = yhteys.cursor()
         kursori.execute(sql)
         tulos = kursori.fetchall()
