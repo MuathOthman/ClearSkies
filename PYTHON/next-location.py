@@ -4,7 +4,7 @@ from flask_cors import CORS
 import requests
 import json
 from flask_cors import CORS
-
+lista = []
 yhteys = mysql.connector.connect(
          host='127.0.0.1',
          port= 3306,
@@ -18,30 +18,72 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
+def laskuri(nimi):
+    sql = "SELECT latitude_deg, longitude_deg FROM airport, game"
+    sql += " where location = ident and screen_name = '" + nimi + "'"
+    kursori = yhteys.cursor()
+    kursori.execute(sql)
+    tulos = kursori.fetchall()
 
-def newlocation(icao, nimi):
-    sql = "UPDATE game set location= '" + icao + "'"
+    location1 = lista[0]
+    sql = "SELECT latitude_deg, longitude_deg FROM airport"
+    sql += " WHERE ident= '" + location1 + "'"
+    kursori1 = yhteys.cursor()
+    kursori1.execute(sql)
+    tulos1 = kursori1.fetchall()
+
+    sql = "UPDATE game set location= '" + location1 + "'"
     sql += "Where screen_name = '" + nimi + "'"
     kursori2 = yhteys.cursor()
     kursori2.execute(sql)
     tulos2 = kursori2.fetchall()
+
+    from geopy.distance import geodesic
+    newport_ri = tulos[0]
+    cleveland_oh = tulos1[0]
+    etaisuus = geodesic(newport_ri, cleveland_oh).kilometers
+    paasot = (etaisuus * 102) / 1000
+    return str(int(paasot))
+
+
+def co2_lisaaminen(nimi):
+    sql = "update game set co2_consumed = co2_consumed + '" + laskuri(nimi) + "'"
+    sql += " WHERE screen_name= '" + nimi + "'"
+    kursori = yhteys.cursor()
+    kursori.execute(sql)
+    tulos = kursori.fetchall()
+    return
+
+def moneybudget(nimi):
+    budget = "50"    #The amount of money will add if you get a new saatila
+    sql = "update game set money = money + '" + budget + "'"        # Adding the amount into sql
+    sql += " WHERE screen_name= '" + nimi + "'"
+    kursori = yhteys.cursor()
+    kursori.execute(sql)
+    tulos = kursori.fetchall()
+    return
+
+
+
 @app.route('/location')
 def code():
     try:
         args = request.args
         nimi = args.get("nimi")
         icao = args.get("icao")
-        newlocation(icao, nimi)
+        lista.append(icao)
+        co2_lisaaminen(nimi)
+        moneybudget(nimi)
+        laskuri(nimi)
         sql = "SELECT latitude_deg, longitude_deg FROM airport"
         sql += " where ident = '" + icao + "'"
         kursori = yhteys.cursor()
         kursori.execute(sql)
         tulos = kursori.fetchall()
         for i in tulos:
-            print(i)
-            print(i[0])
             answer = {"Latitude": + i[0], "Longitude": + i[1]}
             print(answer)
+            lista.clear()
             response_json = json.dumps(answer)
             return Response(response=response_json, status=200, mimetype="application/json")
     except ValueError:

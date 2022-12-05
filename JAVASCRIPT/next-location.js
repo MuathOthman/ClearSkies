@@ -45,7 +45,6 @@ function renderHTML(data) {
     singleMarker.addTo(map);
     latlangs.push(singleMarker.getLatLng());
 
-
 }
 
 main()
