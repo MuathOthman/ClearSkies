@@ -10,6 +10,7 @@
 - Next location (http://127.0.0.1:3070/)
 - Leaderboard (http://127.0.0.1:3090/)
 - Registration (http://127.0.0.1:4320/)
+- WeatherCard (http://127.0.0.1:3078/)
 
 
 
