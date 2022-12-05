@@ -72,6 +72,7 @@ async function secondICAO() {
   var polyline = L.polyline(latlangs, {color: 'red'}).addTo(map);
   // zoom the map to the polyline
   map.fitBounds(polyline.getBounds());
+  const database = await fetch('http://127.0.0.1:3078/location?nimi='+ name + '&icao=' + icao);
 }
 
 
