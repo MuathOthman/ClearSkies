@@ -538,3 +538,4 @@ while True:
 
 
 
+#select main from goal left join goal_reached on goal.id = goal_id left join game on game.id = game_id where screen_name = defaultUser;
