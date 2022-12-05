@@ -10,8 +10,8 @@ def connect_db():
     return mysql.connector.connect(
         host='127.0.0.1',
         port=3306,
-        database='lentopeli',
-        user='testi',
+        database='ClearSkies',
+        user='admin',
         password='12345',
         autocommit=True
     )
@@ -29,8 +29,8 @@ def newuser(nimi, location):
     if (nimi,) in tulos:
         print("Käyttäjänimi on jo olemassa. Kirjaudu sisään painamalla 2.")
     else:
-        sql = "INSERT INTO game (id, co2_consumed, co2_budget, location, screen_name)  "
-        sql += "VALUES ('" + id_funktio + "', '0', '0', '" + location + "', '" + nimi + "')"
+        sql = "INSERT INTO game (id, co2_consumed, co2_budget, location, screen_name, money)  "
+        sql += "VALUES ('" + id_funktio + "', '0', '0', '" + location + "', '" + nimi + "', '0')"
         kursori = connection.cursor()
         kursori.execute(sql)
         tulos = kursori.fetchall()

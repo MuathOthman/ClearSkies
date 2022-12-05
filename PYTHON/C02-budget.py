@@ -6,20 +6,21 @@ def connect_db():
     return mysql.connector.connect(
         host='127.0.0.1',
         port=3306,
-        database='lentopeli',
-        user='testi',
+        database='ClearSkies',
+        user='admin',
         password='12345',
         autocommit=True
     )
 
 
 def budget(name):
-    sql = f"select co2_budget from game where screen_name ='{name}'"
+    sql = f"select co2_consumed, co2_budget from game where screen_name ='{name}'"
     cursor = connection.cursor()
     cursor.execute(sql)
     result_set = cursor.fetchone()
     if cursor.rowcount > 0:
-        return {"co2_budget": result_set[0]}
+        print(result_set[0])
+        return {"co2consumed": result_set[0], "co2budget": result_set[1]}
     else:
         return {"Error": "Give me a correct name"}
 

@@ -10,4 +10,5 @@ async function main() {
   const budget = await wallet(name);
   document.querySelector('#balance').innerHTML = JSON.stringify(budget.money) + '$';
 }
+
 main();

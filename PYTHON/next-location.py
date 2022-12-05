@@ -8,8 +8,8 @@ from flask_cors import CORS
 yhteys = mysql.connector.connect(
          host='127.0.0.1',
          port= 3306,
-         database='lentopeli',
-         user='testi',
+         database='ClearSkies',
+         user='admin',
          password='12345',
          autocommit=True
          )
