@@ -1,5 +1,5 @@
 const latlangs = []
-var map = L.map('map').setView([60.1699,24.9384], 6);
+var map = L.map('map').setView([60.1699,24.9384], 14);
 var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 });
@@ -45,7 +45,6 @@ function renderHTML(data) {
     console.log(singleMarker)
     singleMarker.addTo(map);
     latlangs.push(singleMarker.getLatLng());
-    setView([data['Latitude'], data['Longitude']].addTo(map))
 }
 
 main()
