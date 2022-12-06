@@ -89,7 +89,7 @@ async function budget(nimi){
 
 function budgetC02(dataC02) {
     if (dataC02['co2consumed'] > dataC02['co2budget']){
-
+      popup()
     } else {
       alert('Jatka')
     }
@@ -103,5 +103,15 @@ async function budgetMain(){
 }
 
 function popup(){
+  var blur = document.getElementById('blur');
+  blur.classList.toggle('active');
+  var blur = document.getElementById('popup');
+  blur.classList.toggle('active')
+}
 
+
+async function restart(){
+  let name = localStorage.getItem("textvalue");
+  const restart = await fetch('http://127.0.0.1:3033/sql/' + name);
+  window.location.href="http://localhost:63342/ClearSkies_H-ryhm%C3%A4/HTML/dashboard.html#";
 }
