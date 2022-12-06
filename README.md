@@ -11,6 +11,7 @@
 - Leaderboard (http://127.0.0.1:3090/)
 - Registration (http://127.0.0.1:4320/)
 - WeatherCard (http://127.0.0.1:3078/)
+- Restart (http://127.0.0.1:3033/)
 
 
 
