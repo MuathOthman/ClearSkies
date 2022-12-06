@@ -73,7 +73,35 @@ async function secondICAO() {
   // zoom the map to the polyline
   map.fitBounds(polyline.getBounds());
   const database = await fetch('http://127.0.0.1:3078/location?nimi='+ name + '&icao=' + icao);
+  budgetMain()
 }
 
 
 
+async function budget(nimi){
+  const response = await fetch('http://127.0.0.1:3099/co2_budget/'+ nimi);
+  console.log('response', response)
+  const dataC02 = await response.json()
+  console.log('data', dataC02);
+  return dataC02
+}
+
+
+function budgetC02(dataC02) {
+    if (dataC02['co2consumed'] > dataC02['co2budget']){
+
+    } else {
+      alert('Jatka')
+    }
+}
+
+
+async function budgetMain(){
+  let nimi = localStorage.getItem("textvalue");
+  const data = await budget(nimi)
+  budgetC02(data);
+}
+
+function popup(){
+
+}
