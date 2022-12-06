@@ -73,7 +73,45 @@ async function secondICAO() {
   // zoom the map to the polyline
   map.fitBounds(polyline.getBounds());
   const database = await fetch('http://127.0.0.1:3078/location?nimi='+ name + '&icao=' + icao);
+  budgetMain()
 }
 
 
 
+async function budget(nimi){
+  const response = await fetch('http://127.0.0.1:3099/co2_budget/'+ nimi);
+  console.log('response', response)
+  const dataC02 = await response.json()
+  console.log('data', dataC02);
+  return dataC02
+}
+
+
+function budgetC02(dataC02) {
+    if (dataC02['co2consumed'] > dataC02['co2budget']){
+      popup()
+    } else {
+      alert('Jatka')
+    }
+}
+
+
+async function budgetMain(){
+  let nimi = localStorage.getItem("textvalue");
+  const data = await budget(nimi)
+  budgetC02(data);
+}
+
+function popup(){
+  var blur = document.getElementById('blur');
+  blur.classList.toggle('active');
+  var blur = document.getElementById('popup');
+  blur.classList.toggle('active')
+}
+
+
+async function restart(){
+  let name = localStorage.getItem("textvalue");
+  const restart = await fetch('http://127.0.0.1:3033/sql/' + name);
+  window.location.href="http://localhost:63342/ClearSkies_H-ryhm%C3%A4/HTML/dashboard.html#";
+}
