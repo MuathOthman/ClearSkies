@@ -426,37 +426,100 @@ main .airport-search table:hover {
     display: none;
 }
 
-.right .theme-toggler{
-    background: var(--color-light);
+
+/* ================== RECENT UPDATES =====================*/
+.right .recent-updates{
+    margin-top: 1rem;
+}
+.right .recent-updates h2 {
+    margin-bottom: 0.8rem;
+}
+.right .recent-updates .updates {
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+.right .recent-updates .updates:hover {
+    box-shadow: none;
+}
+.right .recent-updates .updates .update {
+    display: grid;
+    grid-template-columns: 2.6rem auto;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* ================= SALES ANALYTICS ==================*/
+.right .sales-analytics{
+    margin-top: 2rem;
+}
+.right .sales-analytics h2 {
+    margin-bottom: 0.8rem;
+}
+.right .sales-analytics .item {
+    background: var(--color-white);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.7rem;
+    padding: 1.4rem var(--card-padding);
+    border-radius: var(--border-radius-3);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+.right .sales-analytics .item:hover{
+    box-shadow: none;
+}
+.right .sales-analytics .item .right{
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    height: 1.6rem;
-    width: 4.2rem;
-    cursor: pointer;
-    border-radius: var(--border-radius-1);
+    align-items: start;
+    margin: 0;
+    width: 80%;
 }
-
-.right .theme-toggler span {
-    font-size: 1.2rem;
-    width: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-right .theme-toggler span.active{
+.right .sales-analytics .item .icon{
+    padding: 0.6rem;
+    color: var(--color-white);
+    border-radius: 50%;
     background: var(--color-primary);
-    color: white;
-    border-radius: var(--border-radius-1);
+    display: flex;
 }
 
-.right .top .profile {
-    display: flex;
-    gap: 2rem;
-    text-align: right;
+.right .sales-analytics .item.rain .icon {
+    background: crimson;
 }
+
+.right .sales-analytics .item.rain .icon .active {
+    background: var(--color-primary);
+}
+
+.right .sales-analytics .item.thunder .icon {
+    background: crimson;
+}
+
+.right .sales-analytics .item.drizzle .icon {
+    background: crimson;
+}
+
+.right .sales-analytics .item.thunder .icon {
+    background: crimson;
+}
+
+.right .sales-analytics .item.online .icon {
+    background: crimson;
+}
+
+.right .sales-analytics .item.snow .icon {
+    background: crimson;
+}
+
+.right .sales-analytics .item.haze .icon {
+    background: crimson;
+}
+
+
 
 .map#blur.active{
     filter: blur(20px);
@@ -474,6 +537,7 @@ right .theme-toggler span.active{
     visibility: hidden;
     opacity: 0;
     transition: 0.5s;
+    border-radius: var(--card-border-radius);
 }
 
 #popup.active {
@@ -486,3 +550,4 @@ right .theme-toggler span.active{
 #popup h2 {
   text-align: center;
 }
+
