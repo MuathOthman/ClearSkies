@@ -1,4 +1,5 @@
 const latlangs = []
+const id = []
 var map = L.map('map').setView([60.1699,24.9384], 14);
 var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -75,6 +76,7 @@ async function secondICAO() {
   const database = await fetch('http://127.0.0.1:3078/location?nimi='+ name + '&icao=' + icao);
   budgetMain()
   weatherMain()
+  Iflocal()
 }
 
 
@@ -92,7 +94,7 @@ function budgetC02(dataC02) {
     if (dataC02['co2consumed'] > dataC02['co2budget']){
       popup()
     } else {
-      alert('Jatka')
+      /*alert('Jatka')*/
     }
 }
 
@@ -130,17 +132,33 @@ async function weather(nimi){
 
 
 function weatherIF(weather) {
-    if (weather['saa'] == 45){
-      alert('Sait säätilan')
-    } else {
-      alert('Et saanu säätilan')
+    if (weather['saa'] == 10){
+      document.documentElement.style.setProperty('--color-thunderstrom', '#7380ec');
+      localStorage.setItem("thunderstrom", '10')
+    } if (weather['saa'] == 19) {
+        document.documentElement.style.setProperty('--color-drizzle', '#7380ec');
+        localStorage.setItem("drizzle", '19')
+    } if (weather['saa'] == 29) {
+        document.documentElement.style.setProperty('--color-rain', '#7380ec');
+        localStorage.setItem('rain', '29')
+    } if (weather['saa'] == 40) {
+        const test = document.documentElement.style.setProperty('--color-snow', '#7380ec');
+        localStorage.setItem('snow', '40')
+    } if (weather['saa'] == 44) {
+        document.documentElement.style.setProperty('--color-clouds', '#7380ec');
+        localStorage.setItem('clouds', '44')
     }
 }
-
 
 async function weatherMain(){
   let nimi = localStorage.getItem("textvalue");
   const data = await weather(nimi)
   console.log(data)
   weatherIF(data);
+}
+
+function Iflocal(){
+  if (localStorage.getItem('snow') == '40'){
+    document.documentElement.style.setProperty('--color-snow', '#7380ec');
+  }
 }
