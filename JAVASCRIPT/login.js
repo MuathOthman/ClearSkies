@@ -7,6 +7,7 @@ async function olduser(username) {
 }
 
 async function validate() {
+  poista()
   const username = document.getElementById('username').value;
   const loguser = await olduser(username);
   if (username === loguser.correct) {
@@ -19,3 +20,14 @@ async function validate() {
   }
 }
 
+
+
+function poista(){
+  localStorage.removeItem('thunderstrom')
+  localStorage.removeItem('drizzle')
+  localStorage.removeItem('rain')
+  localStorage.removeItem('snow')
+  localStorage.removeItem('clouds')
+  localStorage.removeItem('haze')
+
+}

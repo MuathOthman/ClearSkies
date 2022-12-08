@@ -3,6 +3,12 @@
 :root {
     --color-primary: #7380ec;
     --color-danger: #ff7782;
+    --color-clouds: crimson;
+    --color-rain: crimson;
+    --color-thunderstrom: crimson;
+    --color-drizzle: crimson;
+    --color-snow: crimson;
+    --color-haze: crimson;
     --color-success: #41f1b6;
     --color-warning: #ffbb55;
     --color-white: #fff;
@@ -487,36 +493,28 @@ main .airport-search table:hover {
     display: flex;
 }
 
-.right .sales-analytics .item.rain .icon {
-    background: crimson;
+.right .sales-analytics .item.online .icon {
+    background: var(--color-clouds);
 }
 
-.right .sales-analytics .item.rain .icon .active {
-    background: var(--color-primary);
+.right .sales-analytics .item.rain .icon {
+    background: var(--color-rain);
 }
 
 .right .sales-analytics .item.thunder .icon {
-    background: crimson;
+    background: var(--color-thunderstrom);
 }
 
 .right .sales-analytics .item.drizzle .icon {
-    background: crimson;
-}
-
-.right .sales-analytics .item.thunder .icon {
-    background: crimson;
-}
-
-.right .sales-analytics .item.online .icon {
-    background: crimson;
+    background: var(--color-drizzle);
 }
 
 .right .sales-analytics .item.snow .icon {
-    background: crimson;
+    background: var(--color-snow);
 }
 
 .right .sales-analytics .item.haze .icon {
-    background: crimson;
+    background: var(--color-haze);
 }
 
 

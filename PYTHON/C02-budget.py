@@ -17,6 +17,7 @@ def budget(name):
     sql = f"select co2_consumed, co2_budget from game where screen_name ='{name}'"
     cursor = connection.cursor()
     cursor.execute(sql)
+    print(sql)
     result_set = cursor.fetchone()
     if cursor.rowcount > 0:
         print(result_set[0])
@@ -35,4 +36,3 @@ def co2budget(name):
 
 if __name__ == '__main__':
     app.run(use_reloader=True, host='127.0.0.1', port=3099)
-#SQL

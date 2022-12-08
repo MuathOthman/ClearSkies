@@ -76,9 +76,9 @@ async function secondICAO() {
   const database = await fetch('http://127.0.0.1:3078/location?nimi='+ name + '&icao=' + icao);
   budgetMain()
   weatherMain()
-  Iflocal()
 }
 
+Iflocal()
 
 
 async function budget(nimi){
@@ -117,6 +117,13 @@ async function restart(){
   let name = localStorage.getItem("textvalue");
   const restart = await fetch('http://127.0.0.1:3033/sql/' + name);
   window.location.href="http://localhost:63342/ClearSkies_H-ryhm%C3%A4/HTML/dashboard.html#";
+  localStorage.removeItem('thunderstrom')
+  localStorage.removeItem('drizzle')
+  localStorage.removeItem('rain')
+  localStorage.removeItem('snow')
+  localStorage.removeItem('clouds')
+  localStorage.removeItem('haze')
+
 }
 
 /*===================================================
@@ -133,20 +140,22 @@ async function weather(nimi){
 
 function weatherIF(weather) {
     if (weather['saa'] == 10){
-      document.documentElement.style.setProperty('--color-thunderstrom', '#7380ec');
-      localStorage.setItem("thunderstrom", '10')
+      localStorage.setItem("thunderstrom", 10)
     } if (weather['saa'] == 19) {
         document.documentElement.style.setProperty('--color-drizzle', '#7380ec');
-        localStorage.setItem("drizzle", '19')
+        localStorage.setItem("drizzle", 19)
     } if (weather['saa'] == 29) {
         document.documentElement.style.setProperty('--color-rain', '#7380ec');
-        localStorage.setItem('rain', '29')
+        localStorage.setItem('rain', 29)
     } if (weather['saa'] == 40) {
-        const test = document.documentElement.style.setProperty('--color-snow', '#7380ec');
-        localStorage.setItem('snow', '40')
+        document.documentElement.style.setProperty('--color-snow', '#7380ec');
+        localStorage.setItem('snow', 40)
     } if (weather['saa'] == 44) {
         document.documentElement.style.setProperty('--color-clouds', '#7380ec');
-        localStorage.setItem('clouds', '44')
+        localStorage.setItem('clouds', 44)
+    } if (weather['saa'] == 48) {
+        document.documentElement.style.setProperty('--color-haze', '#7380ec');
+        localStorage.setItem('haze', 48)
     }
 }
 
@@ -158,7 +167,28 @@ async function weatherMain(){
 }
 
 function Iflocal(){
-  if (localStorage.getItem('snow') == '40'){
+  if (localStorage.getItem('thunderstrom') == 10){
+    document.documentElement.style.setProperty('--color-thunderstrom', '#7380ec');
+  } if (localStorage.getItem('thunderstrom') == 19){
+    document.documentElement.style.setProperty('--color-drizzle', '#7380ec');
+  } if (localStorage.getItem('rain') == 29){
+    document.documentElement.style.setProperty('--color-rain', '#7380ec');
+  } if (localStorage.getItem('snow') == 40){
     document.documentElement.style.setProperty('--color-snow', '#7380ec');
+  } if (localStorage.getItem('clouds') == 44){
+    document.documentElement.style.setProperty('--color-clouds', '#7380ec');
+  } if (localStorage.getItem('haze') == 48){
+    document.documentElement.style.setProperty('--color-haze', '#7380ec');
   }
+}
+
+
+function poista(){
+  localStorage.removeItem('thunderstrom')
+  localStorage.removeItem('drizzle')
+  localStorage.removeItem('rain')
+  localStorage.removeItem('snow')
+  localStorage.removeItem('clouds')
+  localStorage.removeItem('haze')
+
 }

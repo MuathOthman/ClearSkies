@@ -42,14 +42,16 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 def code(name):
     try:
         sql = "select goal_id from goal_reached"
-        sql += " where game_id = '" + id_find(name) + "'"
+        sql += " where game_id = '" + id_find(name) + "'" + 'order by jarjestys'
+        print(sql)
         kursori = yhteys.cursor()
         kursori.execute(sql)
         tulos = kursori.fetchall()
         if kursori.rowcount > 0:
             for i in tulos:
-                saa_json = {"saa": i[0]}
-                print(i[0])
+                saa_json = {"saa": i[-1]}
+                print('alkaa')
+                print(i)
                 response_json = json.dumps(saa_json)
             return Response(response=response_json, status=200, mimetype="application/json")
     except ValueError:
@@ -62,3 +64,5 @@ def code(name):
 
 if __name__ == '__main__':
     app.run(use_reloader=True, host='127.0.0.1', port=3678)
+
+

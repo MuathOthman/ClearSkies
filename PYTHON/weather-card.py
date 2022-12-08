@@ -10,6 +10,7 @@ saa = []
 saa_id = []
 icao_lista = []
 city_lista = []
+id_lista = [1]
 
 yhteys = mysql.connector.connect(
          host='127.0.0.1',
@@ -68,12 +69,25 @@ def id_find(nimi):
             testi.append(str(rivi[0]))
 
     return str(rivi[0])
+def idJarjestys():
+    testi = []
+    sql = "select jarjestys from goal_reached;"
+    kursori = yhteys.cursor()
+    kursori.execute(sql)
+    tulos = kursori.fetchall()
+    if kursori.rowcount > 0:
+        for rivi in tulos:
+            summa = rivi[-1] + 1
+            return str(summa)
 
-
+idtesti = idJarjestys()
 def push(nimi):
     sql = "INSERT INTO `goal_reached`"
-    sql += "VALUES ('" + id_find(nimi) + "', '" + str(saa_id[-1]) + "')"
+    sql += "VALUES ('" + id_find(nimi) + "', '" + str(saa_id[-1]) + "', '" + str(id_lista[-1]) + "')"
+    summa = id_lista[-1] + 1
+    id_lista.append(summa)
     print(sql)
+    print(id_lista)
     kursori = yhteys.cursor()
     kursori.execute(sql)
     tulos = kursori.fetchall()
