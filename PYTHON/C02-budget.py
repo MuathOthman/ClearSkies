@@ -15,21 +15,15 @@ def connect_db():
 
 def budget(name):
     sql = f"select co2_consumed, co2_budget from game where screen_name ='{name}'"
-    kursori = connection.cursor()
-    kursori.execute(sql)
-    tulos = kursori.fetchall()
-    for i in tulos:
-        return i
-
-def first(name):
-    laskuri = budget(name) - 50
-    print(laskuri)
-    sql = f"select co2_consumed, co2_budget from game where screen_name ='{name}'"
-    kursori = connection.cursor()
-    kursori.execute(sql)
-    tulos = kursori.fetchall()
-    for i in tulos:
-        return i
+    cursor = connection.cursor()
+    cursor.execute(sql)
+    print(sql)
+    result_set = cursor.fetchone()
+    if cursor.rowcount > 0:
+        print(result_set[0])
+        return {"co2consumed": result_set[0], "co2budget": result_set[1]}
+    else:
+        return {"Error": "Give me a correct name"}
 
 connection = connect_db()
 app = Flask(__name__)

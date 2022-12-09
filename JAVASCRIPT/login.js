@@ -12,7 +12,7 @@ async function validate(event) {
   const username = document.getElementById('username').value;
   const loguser = await olduser(username);
   if (username === loguser.correct) {
-    window.location.href="http://localhost:63342/ClearSkies_new/HTML/dashboard.html?_ijt=kaj6c5pe3pbm2pcqntibjj9h2u&_ij_reload=RELOAD_ON_SAVE";
+    window.location.href="http://localhost:63342/ClearSkies_H-ryhm%C3%A4/HTML/dashboard.html?_ijt=5rm6h00jei6cjs1m6mo0e0g7in&_ij_reload=RELOAD_ON_SAVE";
     localStorage.setItem("textvalue", username)
     return false;
   } else {
@@ -30,5 +30,5 @@ function poista(){
   localStorage.removeItem('snow')
   localStorage.removeItem('clouds')
   localStorage.removeItem('haze')
-
+  localStorage.removeItem('clear')
 }

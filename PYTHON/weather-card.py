@@ -91,7 +91,66 @@ def push(nimi):
     kursori = yhteys.cursor()
     kursori.execute(sql)
     tulos = kursori.fetchall()
+    saakortti(nimi)
 
+
+def addmoney(nimi):
+    sql = "update game set money = money + '" + '50' + "'"  # Adding the amount into sql
+    sql += " WHERE screen_name= '" + nimi + "'"
+    kursori = yhteys.cursor()
+    kursori.execute(sql)
+
+
+def saakortti(nimi):
+    sql = "select main from goal left join goal_reached on goal.id = goal_id left join game on game.id = game_id where screen_name ='" + nimi + "'"
+    kursori = yhteys.cursor()
+    kursori.execute(sql)
+    tulos = kursori.fetchall()
+    if 'Thunderstorm' in tulos:
+        print('lisätään 50')
+        addmoney(nimi)
+    elif 'Rain' in tulos:
+        print('lisätään 50')
+        addmoney(nimi)
+    elif 'Drizzle' in tulos:
+        print('lisätään 50')
+        addmoney(nimi)
+    elif 'Snow' in tulos:
+        print('lisätään 50')
+        addmoney(nimi)
+    elif 'Clouds' in tulos:
+        print('lisätään 50')
+        addmoney(nimi)
+    elif 'Clear' in tulos:
+        print('lisätään 50')
+        addmoney(nimi)
+    elif 'Mist' in tulos:
+        print('lisätään 50')
+        addmoney(nimi)
+    elif 'Smoke' in tulos:
+        print('lisätään 50')
+        addmoney(nimi)
+    elif 'Haze' in tulos:
+        print('lisätään 50')
+        addmoney(nimi)
+    elif 'Dust' in tulos:
+        print('lisätään 50')
+        addmoney(nimi)
+    elif 'Fog' in tulos:
+        print('lisätään 50')
+        addmoney(nimi)
+    elif 'Sand' in tulos:
+        print('lisätään 50')
+        addmoney(nimi)
+    elif 'Ash' in tulos:
+        print('lisätään 50')
+        addmoney(nimi)
+    elif 'Squall' in tulos:
+        print('lisätään 50')
+        addmoney(nimi)
+    else:
+        print('lisätään 50')
+        addmoney(nimi)
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -154,3 +213,5 @@ def code():
 
 if __name__ == '__main__':
     app.run(use_reloader=True, host='127.0.0.1', port=3078)
+
+

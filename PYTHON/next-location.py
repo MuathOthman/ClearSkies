@@ -53,18 +53,6 @@ def co2_lisaaminen(nimi):
     kursori.execute(sql)
     tulos = kursori.fetchall()
     return
-
-def moneybudget(nimi):
-    budget = "50"    #The amount of money will add if you get a new saatila
-    sql = "update game set money = money + '" + budget + "'"        # Adding the amount into sql
-    sql += " WHERE screen_name= '" + nimi + "'"
-    kursori = yhteys.cursor()
-    kursori.execute(sql)
-    tulos = kursori.fetchall()
-    return
-
-
-
 @app.route('/location')
 def code():
     try:
@@ -73,7 +61,6 @@ def code():
         icao = args.get("icao")
         lista.append(icao)
         co2_lisaaminen(nimi)
-        moneybudget(nimi)
         laskuri(nimi)
         sql = "SELECT latitude_deg, longitude_deg FROM airport"
         sql += " where ident = '" + icao + "'"
