@@ -394,7 +394,7 @@ body {
   justify-content: center;
 }
 .money1 button {
-    margin-top: 11rem;
+    margin-top: 45px;
 }
 .button {
     height: auto;
@@ -421,4 +421,8 @@ body {
     right: 0.2rem;
 }
 
-
+.money1 h1 {
+    font-size: 60px;
+    text-align: center;
+    padding-top: 30px;
+}
