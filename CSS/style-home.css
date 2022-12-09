@@ -350,6 +350,20 @@ main .insights small {
     display: block;
 }
 
+main .map .location {
+    background: var(--color-white);
+    width: 99.4%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: left;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    height: 6rem;
+    margin-bottom: 1rem;
+}
+main .map .location:hover {
+    box-shadow: none;
+}
 main .map {
     margin-top: 2rem;
 }
