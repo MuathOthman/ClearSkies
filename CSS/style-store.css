@@ -268,10 +268,6 @@ main .insights > div span {
 }
 
 
-main .insights > div.money span{
-    background: var(--color-danger);
-}
-
 main .insights > div.co2 span{
     background: var(--color-success);
 }
@@ -289,8 +285,8 @@ main .insights h3{
 
 main .insights .progress {
     position: relative;
-    width: 92px;
-    height: 92px;
+    width: 100%;
+    height: 150px;
     border-radius: 50%;
 }
 
@@ -307,19 +303,9 @@ main .insights svg circle{
     transform: translate(5px, 5px);
 }
 
-main .insights .weather svg circle{
+main .insights .money1 svg circle{
     stroke-dashoffset: 0;
     stroke-dasharray: 400;
-}
-
-main .insights .money svg circle{
-    stroke-dashoffset: -20;
-    stroke-dasharray: 180;
-}
-
-main .insights .co2 svg circle{
-    stroke-dashoffset: 35;
-    stroke-dasharray: 110;
 }
 
 main .insights .progress .number {
@@ -350,97 +336,89 @@ main .insights small {
     display: block;
 }
 
-main .map {
-    margin-top: 2rem;
+
+
+/*======BUTTON======*/
+@media (hover: hover) {
+  #creditcard {
+    /*  set start position */
+    transform: translateY(110px);
+    transition: transform 0.1s ease-in-out;
+    /*  set transition for mouse enter & exit */
+  }
+
+  #money {
+    /*  set start position */
+    transform: translateY(180px);
+    transition: transform 0.1s ease-in-out;
+    /*  set transition for mouse enter & exit */
+  }
+
+  button:hover #creditcard {
+    transform: translateY(0px);
+    transition: transform 0.2s ease-in-out;
+    /*  overide transition for mouse enter */
+  }
+
+  button:hover #money {
+    transform: translateY(0px);
+    transition: transform 0.3s ease-in-out;
+    /*  overide transition for mouse enter */
+  }
 }
 
-main .map h2{
-    margin-bottom: 0.8rem;
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.25rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
-main .map table {
-    background: var(--color-white);
-    width: 100%;
-    border-radius: var(--card-border-radius);
-    padding: var(--card-padding);
-    text-align: center;
-    box-shadow: var(--box-shadow);
-    transition: all 300ms ease;
+.button:hover .button__text span {
+  transform: translateY(-0.25rem);
+  transition: transform .2s ease-in-out;
 }
 
-main .map table:hover {
-    box-shadow: none;
-}
+/* styling */
 
-main table tbody td {
-    height: 2.8rem;
-    border-bottom: 1px solid var(--color-white);
-    color: var(--color-dark-variant);
-}
 
-main table tbody tr:last-child td {
+body {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.money1 button {
+    margin-top: 11rem;
+}
+.button {
+    height: auto;
     border: none;
-}
-
-main .airport-search table{
-    height: 2.8rem;
-    background: var(--color-white);
-    width: 100%;
-    border-radius: var(--card-border-radius);
-    padding: var(--card-padding);
-    text-align: center;
-    box-shadow: var(--box-shadow);
-    transition: all 300ms ease;
-}
-
-main .airport-search table:hover {
-    box-shadow: none;
-}
-
-
-.right {
-    margin-top: 1.4rem;
-}
-
-.right .top {
-    display: flex;
-    justify-content: end;
-    gap: 2rem;
-    background: gray;
-}
-
-.right .top button{
-    display: none;
-}
-
-.right .theme-toggler{
-    background: var(--color-light);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 1.6rem;
-    width: 4.2rem;
-    cursor: pointer;
-    border-radius: var(--border-radius-1);
-}
-
-.right .theme-toggler span {
-    font-size: 1.2rem;
-    width: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-right .theme-toggler span.active{
+    outline: none;
     background: var(--color-primary);
-    color: white;
-    border-radius: var(--border-radius-1);
+    padding: 1rem 90px 1rem 2rem;
+    position: relative;
+    border-radius: 8px;
+    background: var(--color-primary);
+    color: #fff;
+    font-family: poppins, sans-serif;
+    box-shadow: rgba(0, 9, 61, 0.2) 0 4px 8px 0;
 }
 
-.right .top .profile {
-    display: flex;
-    gap: 2rem;
-    text-align: right;
+.button:active {
+    transform: translateY(1px);
 }
+
+.button__svg {
+    position: absolute;
+    overflow: visible;
+    bottom: 8px;
+    right: 0.2rem;
+}
+
+
