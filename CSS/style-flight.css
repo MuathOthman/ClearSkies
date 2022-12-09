@@ -9,6 +9,7 @@
     --color-drizzle: crimson;
     --color-snow: crimson;
     --color-haze: crimson;
+    --color-clear: crimson;
     --color-success: #41f1b6;
     --color-warning: #ffbb55;
     --color-white: #fff;
@@ -517,6 +518,10 @@ main .airport-search table:hover {
     background: var(--color-haze);
 }
 
+.right .sales-analytics .item.clear .icon {
+    background: var(--color-clear);
+}
+
 
 
 .map#blur.active{
@@ -549,3 +554,20 @@ main .airport-search table:hover {
   text-align: center;
 }
 
+
+
+.search {
+    border: none;
+    margin-top: -20px;
+    height: 70%;
+    width: 100%;
+    padding: 0 5px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-family:"Nunito";
+    color: #424242;
+    font-weight: 500;
+}
+.search:focus {
+    outline: none;
+}

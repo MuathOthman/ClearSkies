@@ -123,6 +123,7 @@ async function restart(){
   localStorage.removeItem('snow')
   localStorage.removeItem('clouds')
   localStorage.removeItem('haze')
+  localStorage.removeItem('clear')
 
 }
 
@@ -156,6 +157,33 @@ function weatherIF(weather) {
     } if (weather['saa'] == 48) {
         document.documentElement.style.setProperty('--color-haze', '#7380ec');
         localStorage.setItem('haze', 48)
+    } if (weather['saa'] == 46) {
+        document.documentElement.style.setProperty('--color-haze', '#7380ec');
+        localStorage.setItem('haze', 48)
+    } if (weather['saa'] == 47) {
+        document.documentElement.style.setProperty('--color-haze', '#7380ec');
+        localStorage.setItem('haze', 48)
+    } if (weather['saa'] == 49) {
+        document.documentElement.style.setProperty('--color-haze', '#7380ec');
+        localStorage.setItem('haze', 48)
+    } if (weather['saa'] == 50) {
+        document.documentElement.style.setProperty('--color-haze', '#7380ec');
+        localStorage.setItem('haze', 48)
+    } if (weather['saa'] == 51) {
+        document.documentElement.style.setProperty('--color-haze', '#7380ec');
+        localStorage.setItem('haze', 48)
+    } if (weather['saa'] == 52) {
+        document.documentElement.style.setProperty('--color-haze', '#7380ec');
+        localStorage.setItem('haze', 48)
+    } if (weather['saa'] == 54) {
+        document.documentElement.style.setProperty('--color-haze', '#7380ec');
+        localStorage.setItem('haze', 48)
+    } if (weather['saa'] == 55) {
+        document.documentElement.style.setProperty('--color-haze', '#7380ec');
+        localStorage.setItem('haze', 48)
+    } if (weather['saa'] == 45) {
+        document.documentElement.style.setProperty('--color-clear', '#7380ec');
+        localStorage.setItem('clear', 45)
     }
 }
 
@@ -177,8 +205,28 @@ function Iflocal(){
     document.documentElement.style.setProperty('--color-snow', '#7380ec');
   } if (localStorage.getItem('clouds') == 44){
     document.documentElement.style.setProperty('--color-clouds', '#7380ec');
+  } if (localStorage.getItem('haze') == 46){
+    document.documentElement.style.setProperty('--color-haze', '#7380ec');
+  } if (localStorage.getItem('haze') == 47){
+    document.documentElement.style.setProperty('--color-haze', '#7380ec');
   } if (localStorage.getItem('haze') == 48){
     document.documentElement.style.setProperty('--color-haze', '#7380ec');
+  } if (localStorage.getItem('haze') == 49){
+    document.documentElement.style.setProperty('--color-haze', '#7380ec');
+  } if (localStorage.getItem('haze') == 50){
+    document.documentElement.style.setProperty('--color-haze', '#7380ec');
+  } if (localStorage.getItem('haze') == 51){
+    document.documentElement.style.setProperty('--color-haze', '#7380ec');
+  } if (localStorage.getItem('haze') == 52){
+    document.documentElement.style.setProperty('--color-haze', '#7380ec');
+  } if (localStorage.getItem('haze') == 53){
+    document.documentElement.style.setProperty('--color-haze', '#7380ec');
+  } if (localStorage.getItem('haze') == 54){
+    document.documentElement.style.setProperty('--color-haze', '#7380ec');
+  } if (localStorage.getItem('haze') == 55){
+    document.documentElement.style.setProperty('--color-haze', '#7380ec');
+  } if (localStorage.getItem('clear') == 45){
+    document.documentElement.style.setProperty('--color-clear', '#7380ec');
   }
 }
 
@@ -190,5 +238,5 @@ function poista(){
   localStorage.removeItem('snow')
   localStorage.removeItem('clouds')
   localStorage.removeItem('haze')
-
+  localStorage.removeItem('clear')
 }
