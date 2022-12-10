@@ -1,3 +1,4 @@
+document.getElementById('namehtml').innerHTML=localStorage.getItem("textvalue");
 const latlangs = []
 const id = []
 var map = L.map('map').setView([60.1699,24.9384], 14);

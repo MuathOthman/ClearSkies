@@ -1,3 +1,4 @@
+document.getElementById('namehtml').innerHTML=localStorage.getItem("textvalue");
 const button = document.querySelector('.button')
 let rank = 1
 
