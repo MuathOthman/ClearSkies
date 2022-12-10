@@ -1,4 +1,3 @@
-document.getElementById('namehtml').innerHTML=localStorage.getItem("textvalue");
 const button = document.querySelector('.button')
 let rank = 1
 
@@ -24,7 +23,6 @@ fetch('http://127.0.0.1:3090/leaderboard/')
 
     placeholder.innerHTML = out;
   })
-
 
 
 

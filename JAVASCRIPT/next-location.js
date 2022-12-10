@@ -1,4 +1,3 @@
-document.getElementById('namehtml').innerHTML=localStorage.getItem("textvalue");
 const latlangs = []
 const id = []
 var map = L.map('map').setView([60.1699,24.9384], 14);
@@ -77,7 +76,6 @@ async function secondICAO() {
   const database = await fetch('http://127.0.0.1:3078/location?nimi='+ name + '&icao=' + icao);
   budgetMain()
   weatherMain()
-  budgetMainWin()
 }
 
 Iflocal()
@@ -244,7 +242,7 @@ function poista(){
 }
 
 async function saaWin(nimi){
-  const response = await fetch('http://127.0.0.1:2078/location/'+ nimi);
+  const response = await fetch('http://127.0.0.1:2078/location/' + nimi);
   console.log('response', response)
   const saa = await response.json()
   console.log('data', saa);
@@ -254,9 +252,8 @@ async function saaWin(nimi){
 function budgetC02Win(saa) {
     if (saa['tila'] == 4){
       popupWin()
-      window.location.href="http://localhost:63342/ClearSkies_H-ryhm%C3%A4/HTML/leaderboard.html?";
     } else {
-      /*alert('Hävisit')*/
+      /alert('Hävisit')/
     }
 }
 

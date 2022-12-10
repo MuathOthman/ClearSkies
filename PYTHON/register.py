@@ -27,23 +27,15 @@ def newuser(nimi, location):
     kursori.execute(sql)
     tulos = kursori.fetchall()
     if (nimi,) in tulos:
-        print("Käyttäjänimi on jo olemassa.")
+        print("Käyttäjänimi on jo olemassa. Kirjaudu sisään painamalla 2.")
     else:
-        sql = "select ident from airport where scheduled_service =  'yes';"
-        # print(sql)
+        sql = "INSERT INTO game (id, co2_consumed, co2_budget, location, screen_name, money)  "
+        sql += "VALUES ('" + id_funktio + "', '0', '0', '" + location + "', '" + nimi + "', '0')"
         kursori = connection.cursor()
         kursori.execute(sql)
         tulos = kursori.fetchall()
-        if (location.upper(), ) not in tulos:
-            print("Komento ei suoritettu!")
-        else:
-            sql = "INSERT INTO game (id, co2_consumed, co2_budget, location, screen_name, money)  "
-            sql += "VALUES ('" + id_funktio + "', '0', '0', '" + location + "', '" + nimi + "', '0')"
-            kursori = connection.cursor()
-            kursori.execute(sql)
-            tulos = kursori.fetchall()
-            print(sql)
-            budjetti(nimi)
+        print(sql)
+        budjetti(nimi)
     return
 
 

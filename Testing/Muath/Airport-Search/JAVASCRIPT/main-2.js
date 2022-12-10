@@ -1,9 +1,6 @@
-const button = document.querySelector('.button')
+let icao = prompt('Give ICAO')
 
-button.addEventListener('click', function(){
-  let country = document.getElementById("search").value
-  console.log(country)
-  fetch('http://127.0.0.1:3080/kentta/'+ country)
+  fetch('http://127.0.0.1:3000/kentta/'+ icao)
   .then(function(response) {
     return response.json()
   })
@@ -13,16 +10,16 @@ button.addEventListener('click', function(){
     for (let m of data) {
         out += `
               <tr>
-                <td>${m.name}</td>
-                <td className="warning">${m.icao}</td>
+                <td>'${m.name}'</td>
+                <td className="warning">'${m.icao}'</td>
               </tr>
             `;
     }
   console.log(out)
-
     placeholder.innerHTML = out;
   })
-})
+
+
 
 
 
