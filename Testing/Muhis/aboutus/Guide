@@ -1,0 +1,16 @@
+Käyttäjä aloittaa pelin, jolloin käyttäjälle annetaan kaksi vaihtoehtoa.
+Käyttäjä joko luo uuden käyttäjän keksimällään käyttäjätunnuksella tai jatkaa pelaamista jo aikaisemmin luodulla käyttäjällä.
+Kaikki peliin liittyvä tieto ja info on pelaajan saatavilla sivupalkista läpi pelin.
+Jos pelaaja valitsee vanhan käyttäjän ja kirjautuu sisään, hänelle tulostetaan tietokannan avulla jo saavutetut säätilat ja jäljellä oleva CO2-päästökiintiö.
+Pelin tavoite on matkustaa eri lentokenttien välillä ja saavuttaa kahdeksan eri säätilaa aiheuttaen mahdollisimman vähän CO2-päästöjä.
+Peli määrittää pelaajalle CO2-päästöjen ylärajan. Lentokenttien välillä matkustetaan syöttämällä lentokenttien ICAO-koodeja.
+Pelaajan saapuessa kohteeseen pelaajan on mahdollista saavuttaa uusi säätila.
+Mikäli säätila on jo saavutettu aikaisemmin pelaaja ei kerää kyseistä säätilaa uudelleen vaan joutuu siirtymään seuraavaan kohteeseen.
+Jokaisella lennolla pelaajan CO2-kapasiteetti pienenee riippuen matkan pituudesta sekä lentokoneen mallista, joka määräytyy matkan pituuden mukaan.
+Jos CO2-päästöt ylittyvät peli loppuu (game over), joka tarkoittaa, että peli on hävitty ja pelaaja joutuu aloittamaan alusta.
+Pelaajalla on kuitenkin mahdollisuus ostaa lisää CO2-kapasiteettia ansaitsemallaan rahalla, jonka avulla hän pystyy mahdollisesti lentämään lisää.
+Pelaajan rahan määrä kasvaa aina 50 dollarilla uuden säätilan keräämisen myötä.
+Pelaaja voi vaihtaa 50 dollaria 25 kilogrammaan CO2-kapasiteettia.
+Kun pelaaja tavoittaa säätilat ylittämättä CO2-kapasiteettia, läpäisee hän pelin.
+Tämän jälkeen ohjelma tulostaa pelaajalle hänen saavutuksensa pelin sijoituslistaan muita pelaajia vastaan.
+Sijoituslista järjestää pelaajat hiilidioksidipäästöjen mukaan: ensimmäinen sijoitus pienin CO2 kulutus + kahdeksan säätilaa.

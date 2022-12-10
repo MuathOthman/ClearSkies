@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lentopeli</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/Guide.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <script src="../JAVASCRIPT/next-location.js" defer></script>
+
+</head>
+<body>
+<div class="container">
+  <aside>
+    <div class="top">
+      <div class="logo">
+          <img src="../CSS/images/logo.png" alt="">
+        </div>
+      <div class="close" id="close-btn">
+        <span class="material-icons-sharp">close</span>
+      </div>
+    </div>
+    <div class="sidebar">
+      <div class="info">
+         <span class="material-icons-sharp">emoji_people</span>
+         <p id="namehtml"></p>
+      </div>
+      <a href="dashboard.html">
+        <span class="material-icons-sharp">dashboard</span>
+        <h3>Dashboard</h3>
+      </a>
+      <a href="flight.html">
+        <span class="material-icons-sharp">flight</span>
+        <h3>Flights</h3>
+      </a>
+      <a href="airport.html">
+        <span class="material-icons-sharp">travel_explore</span>
+        <h3>Airport</h3>
+      </a>
+      <a href="leaderboard.html">
+        <span class="material-icons-sharp">leaderboard</span>
+        <h3>Leaderboard</h3>
+      </a>
+      <a href="store.html">
+        <span class="material-icons-sharp">shopping_cart</span>
+        <h3>Store</h3>
+      </a>
+      <a href="Guide.html" class="active"><span class="material-icons-sharp">info</span>
+        <h3>Guide</h3>
+      </a>
+      <a href="#">
+        <span class="material-icons-sharp">settings</span>
+        <h3>Settings</h3>
+      </a>
+       <div class="logout">
+      <a href="">
+        <span class="material-icons-sharp">logout</span>
+        <h3>Log Out</h3>
+      </a>
+      </div>
+    </div>
+  </aside>
+  <main>
+    <h1>Guide</h1>
+    <!------------------------Map------------------------>
+          <div class="map">
+            <table>
+              <thead>
+              <tr class="test">
+                <th><h1>Welcome to ClearSkies!</h1>
+                <h3>Käyttäjä aloittaa pelin, jolloin käyttäjälle annetaan kaksi vaihtoehtoa.
+Käyttäjä joko luo uuden käyttäjän keksimällään käyttäjätunnuksella tai jatkaa pelaamista jo aikaisemmin luodulla käyttäjällä. Kaikki peliin liittyvä tieto ja info on pelaajan saatavilla sivupalkista läpi pelin. Jos pelaaja valitsee vanhan käyttäjän ja kirjautuu sisään, hänelle tulostetaan tietokannan avulla jo saavutetut säätilat ja jäljellä oleva CO2-päästökiintiö. Pelin tavoite on matkustaa eri lentokenttien välillä ja saavuttaa kahdeksan eri säätilaa aiheuttaen mahdollisimman vähän CO2-päästöjä. Peli määrittää pelaajalle CO2-päästöjen ylärajan. Lentokenttien välillä matkustetaan syöttämällä lentokenttien ICAO-koodeja. Pelaajan saapuessa kohteeseen pelaajan on mahdollista saavuttaa uusi säätila. Mikäli säätila on jo saavutettu aikaisemmin pelaaja ei kerää kyseistä säätilaa uudelleen vaan joutuu siirtymään seuraavaan kohteeseen. Jokaisella lennolla pelaajan CO2-kapasiteetti pienenee riippuen matkan pituudesta sekä lentokoneen mallista, joka määräytyy matkan pituuden mukaan. Jos CO2-päästöt ylittyvät peli loppuu (game over), joka tarkoittaa, että peli on hävitty ja pelaaja joutuu aloittamaan alusta. Pelaajalla on kuitenkin mahdollisuus ostaa lisää CO2-kapasiteettia ansaitsemallaan rahalla, jonka avulla hän pystyy mahdollisesti lentämään lisää. Pelaajan rahan määrä kasvaa aina 50 dollarilla uuden säätilan keräämisen myötä. Pelaaja voi vaihtaa 50 dollaria 25 kilogrammaan CO2-kapasiteettia. Kun pelaaja tavoittaa säätilat ylittämättä CO2-kapasiteettia, läpäisee hän pelin. Tämän jälkeen ohjelma tulostaa pelaajalle hänen saavutuksensa pelin sijoituslistaan muita pelaajia vastaan. Sijoituslista järjestää pelaajat hiilidioksidipäästöjen mukaan: ensimmäinen sijoitus pienin CO2 kulutus + kahdeksan säätilaa.
+</h3></th>
+              </tr>
+              </thead>
+              <tbody id="data-output">
+
+              </tbody>
+            </table>
+          </div>
+  </main>
+</div>
+</body>
+</html>
