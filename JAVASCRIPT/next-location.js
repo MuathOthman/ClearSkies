@@ -76,6 +76,7 @@ async function secondICAO() {
   const database = await fetch('http://127.0.0.1:3078/location?nimi='+ name + '&icao=' + icao);
   budgetMain()
   weatherMain()
+  budgetMainWin()
 }
 
 Iflocal()
