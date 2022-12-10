@@ -10,7 +10,7 @@
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin="" defer></script>
     <script src="../JAVASCRIPT/next-location.js" defer></script>
     <script src="https://unpkg.com/wrld.js@1.0.0"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 
 </head>
 <body>
@@ -19,7 +19,6 @@
     <div class="top">
       <div class="logo">
           <img src="../CSS/images/logo.png" alt="">
-          <h2>Clear<span class="danger">Skies</span></h2>
         </div>
       <div class="close" id="close-btn">
         <span class="material-icons-sharp">close</span>
@@ -57,10 +56,12 @@
         <span class="material-icons-sharp">settings</span>
         <h3>Settings</h3>
       </a>
+       <div class="logout">
       <a href="">
         <span class="material-icons-sharp">logout</span>
         <h3>Log Out</h3>
       </a>
+      </div>
     </div>
   </aside>
   <main>
@@ -74,7 +75,7 @@
       <div id="popup">
           <h2>YOU LOST! GAME OVER</h2>
           <a href="#" onclick="restart()">RESTART</a>
-          <a href="#" onclick="signout()">SIGN OUT</a>
+          <a href="#" onclick="singout()">SIGN OUT</a>
       </div>
     <br>
     <br>
@@ -187,5 +188,6 @@
      </div>
     </div>
   </div>
+</div>
 </body>
 </html>

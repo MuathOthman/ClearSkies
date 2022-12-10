@@ -130,7 +130,7 @@ aside{
 }
 
 aside .top{
-    background: white;
+    background: none;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -143,8 +143,18 @@ aside .logo{
 }
 
 aside .logo img {
-    width: 2rem;
-    height: 2rem;
+    width: 80px;
+    height: 80px;
+    margin-left: 65%;
+    margin-top: 25%;
+}
+
+.logout span{
+    margin-top: -80%;
+}
+
+.logout h3{
+    margin-top: -80%;
 }
 
 aside .close{

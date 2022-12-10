@@ -68,11 +68,9 @@ h1{
     font-weight: 800;
     font-size: 1.8rem;
 }
-
 h2{
     font-size: 1.4rem;
 }
-
 h3{
     font-size: 0.87rem;
 }
@@ -130,7 +128,7 @@ aside{
 }
 
 aside .top{
-    background: white;
+    background: none;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -143,8 +141,10 @@ aside .logo{
 }
 
 aside .logo img {
-    width: 2rem;
-    height: 2rem;
+    width: 80px;
+    height: 80px;
+    margin-left: 65%;
+    margin-top: 25%;
 }
 
 aside .close{
@@ -163,6 +163,15 @@ aside .sidebar{
 aside h3{
     font-weight: 500;
 }
+
+.logout span{
+    margin-top: -80%;
+}
+
+.logout h3{
+    margin-top: -80%;
+}
+
 
 aside .sidebar a {
     display: flex;
@@ -186,6 +195,11 @@ aside .info {
 }
 
 aside .info span{
+    font-size: 1.6rem;
+    transition: all 300ms ease;
+}
+
+aside .sidebar a {
     font-size: 1.6rem;
     transition: all 300ms ease;
 }
