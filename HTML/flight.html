@@ -11,6 +11,8 @@
     <script src="../JAVASCRIPT/next-location.js" defer></script>
     <script src="https://unpkg.com/wrld.js@1.0.0"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
 
 </head>
 <body>
@@ -49,11 +51,7 @@
       <a href="#"><span class="material-icons-sharp">info</span>
         <h3>Guide</h3>
       </a>
-      <a href="#">
-        <span class="material-icons-sharp">settings</span>
-        <h3>Settings</h3>
-      </a>
-      <a href="">
+      <a href="register.html">
         <span class="material-icons-sharp">logout</span>
         <h3>Log Out</h3>
       </a>
@@ -70,13 +68,13 @@
       <div id="popup">
           <h2>YOU LOST! GAME OVER</h2>
           <a href="#" onclick="restart()">RESTART</a>
-          <a href="#" onclick="signout()">SIGN OUT</a>
+          <a href="register.html?">SIGN OUT</a>
       </div>
       <div id="popup-win">
           <h2>YOU WON!</h2>
           <a href="#" onclick="restart()">RESTART</a>
-          <a href="#">Leaderboard</a>
-          <a href="#" onclick="signout()">SIGN OUT</a>
+          <a href="leaderboard.html?">LEADERBOARD</a>
+          <a href="register.html?">SIGN OUT</a>
       </div>
     <br>
     <br>
