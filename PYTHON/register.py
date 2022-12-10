@@ -1,9 +1,6 @@
 import mysql.connector
 from flask_cors import CORS
-import requests
-from flask import Flask, request, Response
-import json
-
+from flask import Flask
 
 
 def connect_db():
@@ -15,28 +12,34 @@ def connect_db():
         password='12345',
         autocommit=True
     )
+
+
 connection = connect_db()
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 
-def newuser(nimi, location):
-    sql = "select screen_name from game"
+def newuser(user, location):
+    sql = f"select screen_name from game where screen_name= '{user}'"
+    cursor = connection.cursor()
+    cursor.execute(sql)
+    result_set = cursor.fetchone()
+    if cursor.rowcount > 0:
+        return {"old": result_set[0]}
+    else:
+        newaccount(user, location)
+        return {"new": "welcome to clearskies"}
+
+
+def newaccount(user, location):
+    sql = "INSERT INTO game (id, co2_consumed, co2_budget, location, screen_name, money)  "
+    sql += "VALUES ('" + id_funktio + "', '0', '0', '" + location + "', '" + user + "', '0')"
+    print(id_funktio)
     kursori = connection.cursor()
     kursori.execute(sql)
     tulos = kursori.fetchall()
-    if (nimi,) in tulos:
-        print("Käyttäjänimi on jo olemassa. Kirjaudu sisään painamalla 2.")
-    else:
-        sql = "INSERT INTO game (id, co2_consumed, co2_budget, location, screen_name, money)  "
-        sql += "VALUES ('" + id_funktio + "', '0', '0', '" + location + "', '" + nimi + "', '0')"
-        kursori = connection.cursor()
-        kursori.execute(sql)
-        tulos = kursori.fetchall()
-        print(sql)
-        budjetti(nimi)
-    return
+    budjetti(user)
 
 
 def id():
@@ -56,12 +59,12 @@ def id():
             return i
 
 
-def budjetti(nimi):
+def budjetti(user):
     import random
     random_budjetti = random.randint(3917, 7834)
     random_budjetti1 = str(random_budjetti)
     sql = "UPDATE game set co2_budget= '" + random_budjetti1 + "'"
-    sql += "Where screen_name = '" + nimi + "'"
+    sql += "Where screen_name = '" + user + "'"
     kursori = connection.cursor()
     kursori.execute(sql)
     tulos = kursori.fetchall()
@@ -70,19 +73,12 @@ def budjetti(nimi):
 
 id_funktio = id()
 
-@app.route('/signup')
-def signup():
-    args = request.args
-    nimi = args.get("nimi")
-    icao = args.get("icao")
-    print(nimi)
-    print(icao)
-    newuser(nimi, icao)
-    json_function = {'nimi': nimi, 'icao': icao}
-    respone_json = json.dumps(json_function)
-    return respone_json
+
+@app.route('/signup/<user>/<location>')
+def signup(user, location):
+    response = newuser(user, location)
+    return response
+
 
 if __name__ == '__main__':
-    app.run(use_reloader=True, host='127.0.0.1', port=4320)
-
-#SQL
+    app.run(use_reloader=True, host='127.0.0.1', port=4400)
