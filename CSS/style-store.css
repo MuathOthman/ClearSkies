@@ -163,6 +163,21 @@ aside .sidebar{
 aside h3{
     font-weight: 500;
 }
+aside .info {
+    display: flex;
+    color: var(--color-info-dark);
+    margin-left: 2rem;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    height: 3.7rem;
+    transition: all 300ms ease;
+}
+
+aside .info span{
+    font-size: 1.6rem;
+    transition: all 300ms ease;
+}
 
 aside .sidebar a {
     display: flex;
@@ -397,11 +412,9 @@ body {
     margin-top: 45px;
 }
 .button {
-    height: auto;
-    border: none;
     outline: none;
     background: var(--color-primary);
-    padding: 1rem 90px 1rem 2rem;
+    padding: 1rem 90px 1rem 4.5rem;
     position: relative;
     border-radius: 8px;
     background: var(--color-primary);
