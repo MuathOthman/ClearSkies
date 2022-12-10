@@ -59,7 +59,15 @@ def code():
         args = request.args
         nimi = args.get("nimi")
         icao = args.get("icao")
-        lista.append(icao)
+        sql = "select ident from airport where scheduled_service =  'yes';"
+        # print(sql)
+        kursori = yhteys.cursor()
+        kursori.execute(sql)
+        tulos = kursori.fetchall()
+        if (icao.upper(),) not in tulos:
+            print("Komento ei suoritettu!")
+        else:
+            lista.append(icao)
         co2_lisaaminen(nimi)
         laskuri(nimi)
         sql = "SELECT latitude_deg, longitude_deg FROM airport"

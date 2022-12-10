@@ -76,6 +76,7 @@ async function secondICAO() {
   const database = await fetch('http://127.0.0.1:3078/location?nimi='+ name + '&icao=' + icao);
   budgetMain()
   weatherMain()
+  budgetMainWin()
 }
 
 Iflocal()
@@ -239,4 +240,35 @@ function poista(){
   localStorage.removeItem('clouds')
   localStorage.removeItem('haze')
   localStorage.removeItem('clear')
+}
+
+async function saaWin(nimi){
+  const response = await fetch('http://127.0.0.1:2078/location/'+ nimi);
+  console.log('response', response)
+  const saa = await response.json()
+  console.log('data', saa);
+  return saa
+}
+
+function budgetC02Win(saa) {
+    if (saa['tila'] == 4){
+      popupWin()
+      window.location.href="http://localhost:63342/ClearSkies_H-ryhm%C3%A4/HTML/leaderboard.html?";
+    } else {
+      /*alert('Hävisit')*/
+    }
+}
+
+
+async function budgetMainWin(){
+  let nimi = localStorage.getItem("textvalue");
+  const data = await saaWin(nimi)
+  budgetC02Win(data);
+}
+
+function popupWin(){
+  var blur = document.getElementById('blur');
+  blur.classList.toggle('active');
+  var blur = document.getElementById('popup-win');
+  blur.classList.toggle('active')
 }

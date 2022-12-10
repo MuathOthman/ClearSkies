@@ -47,3 +47,4 @@ async function main1() {
 }
   main1()
   console.log('Ohjelma jatkuu');
+
