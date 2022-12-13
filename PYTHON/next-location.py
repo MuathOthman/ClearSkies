@@ -1,7 +1,5 @@
 from flask import Flask, Response, request
 import mysql.connector
-from flask_cors import CORS
-import requests
 import json
 from flask_cors import CORS
 lista = []
@@ -41,9 +39,20 @@ def laskuri(nimi):
     from geopy.distance import geodesic
     newport_ri = tulos[0]
     cleveland_oh = tulos1[0]
+    list1 = []
     etaisuus = geodesic(newport_ri, cleveland_oh).kilometers
-    paasot = (etaisuus * 102) / 1000
-    return str(int(paasot))
+    list1.append(etaisuus)
+    for i in list1:
+        print(i)
+        if i < 1500:
+            small = (i * 50) / 1000
+            return str(int(small))
+        elif i < 4800:
+            medium = (i * 100) / 1000
+            return str(int(medium))
+        else:
+            large = (i * 150) / 1000
+            return str(int(large))
 
 
 def co2_lisaaminen(nimi):
