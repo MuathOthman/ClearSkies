@@ -1,6 +1,6 @@
 from flask import Flask, Response, request
 import mysql.connector
-from flask_cors import CORS
+
 import requests
 import json
 from flask_cors import CORS
@@ -16,6 +16,7 @@ def connect_db():
         autocommit=True
     )
 
+
 samples = []
 location_lista = []
 city_lista = []
@@ -23,6 +24,7 @@ icao_lista = []
 saa_id = []
 saa = []
 id_lista = [1]
+
 
 def first(nimi):
     sql = "SELECT money FROM game"
@@ -45,6 +47,9 @@ def first(nimi):
             print(answer)
             response_json = json.dumps(answer)
             return Response(response=response_json, status=200, mimetype="application/json")
+        else:
+            return {'empty_pockets': "You dont have enough money!"}
+
 
 def second(nimi):
     sql = "SELECT money FROM game"
@@ -67,6 +72,9 @@ def second(nimi):
             print(answer)
             response_json = json.dumps(answer)
             return Response(response=response_json, status=200, mimetype="application/json")
+        else:
+            return {'empty_pockets': "You dont have enough money!"}
+
 
 def third(nimi):
     sql = "SELECT money FROM game"
@@ -89,6 +97,9 @@ def third(nimi):
             print(answer)
             response_json = json.dumps(answer)
             return Response(response=response_json, status=200, mimetype="application/json")
+        else:
+            return {'empty_pockets': "You dont have enough money!"}
+
 
 def fourth(nimi):
     sql = "SELECT money FROM game"
@@ -111,6 +122,8 @@ def fourth(nimi):
             print(answer)
             response_json = json.dumps(answer)
             return Response(response=response_json, status=200, mimetype="application/json")
+        else:
+            return {'empty_pockets': "You dont have enough money!"}
 
 
 def fifth(nimi):
@@ -134,6 +147,9 @@ def fifth(nimi):
             print(answer)
             response_json = json.dumps(answer)
             return Response(response=response_json, status=200, mimetype="application/json")
+        else:
+            return {'empty_pockets': "You dont have enough money!"}
+
 
 def sixth(nimi):
     sql = "SELECT money FROM game"
@@ -156,6 +172,9 @@ def sixth(nimi):
             print(answer)
             response_json = json.dumps(answer)
             return Response(response=response_json, status=200, mimetype="application/json")
+        else:
+            return {'empty_pockets': "You dont have enough money!"}
+
 
 def location(name):
     sql = "SELECT latitude_deg, longitude_deg FROM airport, game"
@@ -170,6 +189,9 @@ def location(name):
         print(answer)
         response_json = json.dumps(answer)
         return Response(response=response_json, status=200, mimetype="application/json")
+    else:
+        return {'wrong_name': "Give me a correct name"}
+
 
 def co2budget(name):
     sql = f"select co2_consumed, co2_budget from game where screen_name ='{name}'"
@@ -200,7 +222,10 @@ def airportSearch(nimi):
             samples.append(airport_json)
         response_json = json.dumps(samples)
         samples.clear()
-    return Response(response=response_json, status=200, mimetype="application/json")
+        return Response(response=response_json, status=200, mimetype="application/json")
+    else:
+        return {'wrong_country': "Give me a correct country!"}
+
 
 def leaderboard():
     samples = []
@@ -222,6 +247,7 @@ def leaderboard():
     samples.clear()
     return Response(response=response_json, status=200, mimetype="application/json")
 
+
 def login(name):
     sql = f"select screen_name from game where screen_name= '{name}'"
     cursor = connection.cursor()
@@ -233,6 +259,7 @@ def login(name):
         return {"Error": "Give me a correct name"}
     return result_set[0]
 
+
 def wallet(name):
     sql = f"select money from game where screen_name ='{name}'"
     cursor = connection.cursor()
@@ -242,6 +269,7 @@ def wallet(name):
         return {"money": result_set[0]}
     else:
         return {"Error": "Give me a correct name"}
+
 
 def calculator(nimi):
     sql = "SELECT latitude_deg, longitude_deg FROM airport, game"
@@ -300,7 +328,7 @@ def next_location():
     kursori.execute(sql)
     tulos = kursori.fetchall()
     if (icao.upper(),) not in tulos:
-        print("Komento ei suoritettu!")
+        return {'wrong_icao': "Give a correct & available icao-code!"}
     else:
         location_lista.append(icao)
     co2_increase(nimi)
@@ -336,6 +364,7 @@ def user_check(user, icao):
             newaccount(user, icao)
         return {'new': 'welcome to clearskies'}
 
+
 def newaccount(user, icao):
     sql = "INSERT INTO game (id, co2_consumed, co2_budget, location, screen_name, money)  "
     sql += "VALUES ('" + id() + "', '0', '0', '" + icao + "', '" + user + "', '0')"
@@ -343,6 +372,7 @@ def newaccount(user, icao):
     kursori = connection.cursor()
     kursori.execute(sql)
     create_budget(user)
+
 
 def id():
     testi = []
@@ -360,6 +390,7 @@ def id():
             # print(i)
             return i
 
+
 def create_budget(user):
     import random
     random_budjetti = random.randint(3917, 7834)
@@ -370,6 +401,7 @@ def create_budget(user):
     kursori.execute(sql)
     tulos = kursori.fetchall()
     return
+
 
 def id_find(name):
     testi = []
@@ -383,6 +415,7 @@ def id_find(name):
         for rivi in tulos:
             testi.append(str(rivi[0]))
         return str(rivi[0])
+
 
 def restart(name):
     sql = "UPDATE game SET co2_consumed = '0', co2_budget= '0', location = 'efhk', money= '0'"
@@ -433,6 +466,7 @@ def weather(name):
     response_json = json.dumps(answer)
     return Response(response=response_json, status=200, mimetype="application/json")
 
+
 def weather_id(saa):
     sql = "select id from goal "
     sql += "where main = '" + saa + "'"
@@ -444,11 +478,12 @@ def weather_id(saa):
         print(i)
     saa_id.append(i[0])
 
+
 def name_id(nimi):
     testi = []
     sql = "select id from game "
     sql += "Where screen_name = '" + nimi + "'"
-    #print(sql)
+    # print(sql)
     kursori = connection.cursor()
     kursori.execute(sql)
     tulos = kursori.fetchall()
@@ -456,6 +491,7 @@ def name_id(nimi):
         for rivi in tulos:
             testi.append(str(rivi[0]))
     return str(rivi[0])
+
 
 def order_id():
     testi = []
@@ -468,6 +504,7 @@ def order_id():
             summa = rivi[-1] + 1
             return str(summa)
 
+
 def push(nimi):
     sql = "INSERT INTO `goal_reached`"
     sql += "VALUES ('" + name_id(nimi) + "', '" + str(saa_id[-1]) + "', '" + str(id_lista[-1]) + "')"
@@ -479,6 +516,7 @@ def push(nimi):
     kursori.execute(sql)
     tulos = kursori.fetchall()
     weatherachieved(nimi)
+
 
 def addmoney(nimi):
     sql = "update game set money = money + '" + '50' + "'"  # Adding the amount into sql
@@ -543,80 +581,97 @@ connection = connect_db()
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
+
+
 @app.route('/first/<name>')
 def firstFlask(name):
     response = first(name)
     return response
+
 
 @app.route('/second/<name>')
 def secondFlask(name):
     response = second(name)
     return response
 
+
 @app.route('/third/<name>')
 def thirdFlask(name):
     response = third(name)
     return response
+
 
 @app.route('/fourth/<name>')
 def fourthFlask(name):
     response = fourth(name)
     return response
 
+
 @app.route('/fifth/<name>')
 def fifthFlask(name):
     response = fifth(name)
     return response
+
 
 @app.route('/sixth/<name>')
 def sixthFlask(name):
     response = sixth(name)
     return response
 
+
 @app.route('/location/<name>')
 def locationFlask(name):
     response = location(name)
     return response
+
 
 @app.route('/budget/<name>')
 def budgetFlask(name):
     response = co2budget(name)
     return response
 
+
 @app.route('/airportsearch/<name>')
 def airportsearchFlask(name):
     response = airportSearch(name)
     return response
+
 
 @app.route('/leaderboard/')
 def leaderboardFlask():
     response = leaderboard()
     return response
 
+
 @app.route('/login/<name>')
 def loginFlask(name):
     response = login(name)
     return response
+
 
 @app.route('/wallet/<name>')
 def walletFlask(name):
     response = wallet(name)
     return response
 
+
 @app.route('/nextlocation/')
 def nextlocationFlask():
     response = next_location()
     return response
+
 
 @app.route('/signup/<user>/<icao>')
 def signup(user, icao):
     response = user_check(user, icao)
     return response
 
+
 @app.route('/restart/<name>')
 def restartFlask(name):
     response = restart(name)
     return response
+
 
 @app.route('/weather/<name>')
 def weatherFlask(name):
@@ -679,8 +734,10 @@ def weathercard():
         responseText = "Invalid parameter: missing?"
         return Response(response=responseText, status=400)
 
+
 @app.route('/saa/<name>')
 def code(name):
+    global response_json
     try:
         sql = "select goal_id from goal_reached"
         sql += " where game_id = '" + id_find(name) + "'" + 'order by jarjestys'
@@ -695,12 +752,14 @@ def code(name):
                 print(i)
                 response_json = json.dumps(saa_json)
             return Response(response=response_json, status=200, mimetype="application/json")
+        return {'novalue': "no weather reached"}
     except ValueError:
         text = "Invalid input value, a not number"
         return Response(response=text, status=400)
     except TypeError:
         responseText = "Invalid parameter: missing?"
         return Response(response=responseText, status=400)
+
 
 @app.route('/winner/<name>')
 def winner(name):
