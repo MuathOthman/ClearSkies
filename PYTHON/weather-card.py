@@ -45,7 +45,7 @@ def api():
 
 #select id from goal where main = 'Clouds';
 
-def id(saa):
+def weather_id(saa):
     sql = "select id from goal "
     sql += "where main = '" + saa + "'"
     print(sql)
@@ -56,7 +56,7 @@ def id(saa):
         print(i)
     saa_id.append(i[0])
 
-def id_find(nimi):
+def name_id(nimi):
     testi = []
     sql = "select id from game "
     sql += "Where screen_name = '" + nimi + "'"
@@ -67,9 +67,8 @@ def id_find(nimi):
     if kursori.rowcount > 0:
         for rivi in tulos:
             testi.append(str(rivi[0]))
-
     return str(rivi[0])
-def idJarjestys():
+def order_id():
     testi = []
     sql = "select jarjestys from goal_reached;"
     kursori = yhteys.cursor()
@@ -80,10 +79,10 @@ def idJarjestys():
             summa = rivi[-1] + 1
             return str(summa)
 
-idtesti = idJarjestys()
+idtesti = order_id()
 def push(nimi):
     sql = "INSERT INTO `goal_reached`"
-    sql += "VALUES ('" + id_find(nimi) + "', '" + str(saa_id[-1]) + "', '" + str(id_lista[-1]) + "')"
+    sql += "VALUES ('" + name_id(nimi) + "', '" + str(saa_id[-1]) + "', '" + str(id_lista[-1]) + "')"
     summa = id_lista[-1] + 1
     id_lista.append(summa)
     print(sql)
@@ -91,7 +90,7 @@ def push(nimi):
     kursori = yhteys.cursor()
     kursori.execute(sql)
     tulos = kursori.fetchall()
-    saakortti(nimi)
+    weatherachieved(nimi)
 
 
 def addmoney(nimi):
@@ -101,7 +100,7 @@ def addmoney(nimi):
     kursori.execute(sql)
 
 
-def saakortti(nimi):
+def weatherachieved(nimi):
     sql = "select main from goal left join goal_reached on goal.id = goal_id left join game on game.id = game_id where screen_name ='" + nimi + "'"
     kursori = yhteys.cursor()
     kursori.execute(sql)
@@ -193,7 +192,7 @@ def code():
                 print(transferData)
         temprature = (vastaus_json['main'])
         answer = {"Description": f"{i['main']}"}
-        id(transferData)
+        weather_id(transferData)
         push(nimi)
         print(answer)
         response_json = json.dumps(answer)

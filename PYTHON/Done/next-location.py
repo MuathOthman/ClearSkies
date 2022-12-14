@@ -16,7 +16,7 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-def laskuri(nimi):
+def calculator(nimi):
     sql = "SELECT latitude_deg, longitude_deg FROM airport, game"
     sql += " where location = ident and screen_name = '" + nimi + "'"
     kursori = yhteys.cursor()
@@ -55,8 +55,8 @@ def laskuri(nimi):
             return str(int(large))
 
 
-def co2_lisaaminen(nimi):
-    sql = "update game set co2_consumed = co2_consumed + '" + laskuri(nimi) + "'"
+def co2_increase(nimi):
+    sql = "update game set co2_consumed = co2_consumed + '" + calculator(nimi) + "'"
     sql += " WHERE screen_name= '" + nimi + "'"
     kursori = yhteys.cursor()
     kursori.execute(sql)
@@ -77,8 +77,8 @@ def code():
             print("Komento ei suoritettu!")
         else:
             lista.append(icao)
-        co2_lisaaminen(nimi)
-        laskuri(nimi)
+        co2_increase(nimi)
+        calculator(nimi)
         sql = "SELECT latitude_deg, longitude_deg FROM airport"
         sql += " where ident = '" + icao + "'"
         kursori = yhteys.cursor()

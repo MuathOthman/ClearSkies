@@ -20,7 +20,7 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 
-def newuser(user, icao):
+def user_check(user, icao):
     sql = "select screen_name from game"
     kursori = connection.cursor()
     kursori.execute(sql)
@@ -45,8 +45,7 @@ def newaccount(user, icao):
     print(id_funktio)
     kursori = connection.cursor()
     kursori.execute(sql)
-    tulos = kursori.fetchall()
-    budjetti(user)
+    create_budget(user)
 
 
 def id():
@@ -63,10 +62,10 @@ def id():
         # print(testi)
         for i in testi:
             # print(i)
-            return i
+            return i[-1]
 
 
-def budjetti(user):
+def create_budget(user):
     import random
     random_budjetti = random.randint(3917, 7834)
     random_budjetti1 = str(random_budjetti)
@@ -81,7 +80,7 @@ id_funktio = id()
 
 @app.route('/signup/<user>/<icao>')
 def signup(user, icao):
-    response = newuser(user, icao)
+    response = user_check(user, icao)
     return response
 
 
