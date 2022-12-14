@@ -24,6 +24,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route('/leaderboard/')
 def leaderboard():
     try:
+        samples = []
         sql = "select screen_name, count(*), co2_consumed from game, goal_reached where id = game_id group by co2_consumed ASC having (count(*)=4)"
         kursori = yhteys.cursor()
         kursori.execute(sql)

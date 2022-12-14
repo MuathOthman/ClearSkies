@@ -16,6 +16,7 @@ def connect_db():
         autocommit=True
     )
 
+samples = []
 
 def first(nimi):
     sql = "SELECT money FROM game"
@@ -150,6 +151,71 @@ def sixth(nimi):
             response_json = json.dumps(answer)
             return Response(response=response_json, status=200, mimetype="application/json")
 
+def location(name):
+    sql = "SELECT latitude_deg, longitude_deg FROM airport, game"
+    sql += " where location = ident and screen_name = '" + name + "'"
+    kursori = connection.cursor()
+    kursori.execute(sql)
+    tulos = kursori.fetchall()
+    for i in tulos:
+        print(i)
+        print(i[0])
+        answer = {"Latitude": + i[0], "Longitude": + i[1]}
+        print(answer)
+        response_json = json.dumps(answer)
+        return Response(response=response_json, status=200, mimetype="application/json")
+
+def budget(name):
+    sql = f"select co2_consumed, co2_budget from game where screen_name ='{name}'"
+    cursor = connection.cursor()
+    cursor.execute(sql)
+    print(sql)
+    result_set = cursor.fetchone()
+    if cursor.rowcount > 0:
+        print(result_set[0])
+        return {"co2consumed": result_set[0], "co2budget": result_set[1]}
+    else:
+        return {"Error": "Give me a correct name"}
+
+
+def airportSearch(nimi):
+    sql = "select airport.name, airport.ident from country inner join airport "
+    sql += " on airport.iso_country = country.iso_country where country.name = '" + nimi + "' and scheduled_service = 'yes'"
+    kursori = connection.cursor()
+    kursori.execute(sql)
+    tulos = kursori.fetchall()
+    if kursori.rowcount > 0:
+        for i in tulos:
+            print(i[-1])
+            print(i[-2])
+            airport_json = {"name": None, "icao": None}
+            airport_json["name"] = i[-2]
+            airport_json["icao"] = i[-1]
+            samples.append(airport_json)
+        response_json = json.dumps(samples)
+        samples.clear()
+    return Response(response=response_json, status=200, mimetype="application/json")
+
+def leaderboard():
+    samples = []
+    sql = "select screen_name, count(*), co2_consumed from game, goal_reached where id = game_id group by co2_consumed ASC having (count(*)=4)"
+    kursori = connection.cursor()
+    kursori.execute(sql)
+    tulos = kursori.fetchall()
+    if kursori.rowcount > 0:
+        for i in tulos:
+            print(i[-1])
+            print(i[-2])
+            print([-3])
+            airport_json = {"name": None, "coconsumed": None, "weathercard": None}
+            airport_json["name"] = i[-3]
+            airport_json["coconsumed"] = i[-1]
+            airport_json["weathercard"] = i[-2]
+            samples.append(airport_json)
+    response_json = json.dumps(samples)
+    samples.clear()
+    return Response(response=response_json, status=200, mimetype="application/json")
+
 
 connection = connect_db()
 app = Flask(__name__)
@@ -183,6 +249,26 @@ def fifthFlask(name):
 @app.route('/sixth/<name>')
 def sixthFlask(name):
     response = sixth(name)
+    return response
+
+@app.route('/location/<name>')
+def locationFlask(name):
+    response = location(name)
+    return response
+
+@app.route('/budget/<name>')
+def budgetFlask(name):
+    response = budget(name)
+    return response
+
+@app.route('/airportsearch/<name>')
+def airportsearchFlask(name):
+    response = airportSearch(name)
+    return response
+
+@app.route('/leaderboard/')
+def leaderboardFlask():
+    response = leaderboard()
     return response
 
 

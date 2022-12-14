@@ -1,7 +1,7 @@
 const button = document.querySelector('.button')
 let rank = 1
 
-fetch('http://127.0.0.1:3090/leaderboard/')
+fetch('http://127.0.0.1:1029/leaderboard/')
 .then(function(response) {
   return response.json()
 })
