@@ -2,7 +2,7 @@ document.getElementById('namehtml').innerHTML=localStorage.getItem("textvalue");
 
 
 async function getAirportData(icao){
-  const response = await fetch('http://127.0.0.1:3040/saa/'+ icao);
+  const response = await fetch('http://127.0.0.1:1029/weather/'+ icao);
   console.log('response', response)
   const data = await response.json()
   console.log('data', data);
@@ -22,11 +22,12 @@ async function main() {
   console.log('Ariport data:', aiportData);
   renderHTML(aiportData);
 }
-  main()
+
+main()
 
 
 async function budget(name){
-  const response = await fetch('http://127.0.0.1:3099/co2_budget/' + name);
+  const response = await fetch('http://127.0.0.1:1029/budget/' + name);
   console.log('response', response)
   const data = await response.json()
   console.log('data', data);

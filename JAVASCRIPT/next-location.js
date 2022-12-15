@@ -23,7 +23,7 @@ googleSat.addTo(map);
 ===================================================*/
 
 async function getAirportData(nimi){
-  const response = await fetch('http://127.0.0.1:3060/location/'+ nimi);
+  const response = await fetch('http://127.0.0.1:1029/location/'+ nimi);
   console.log('response', response)
   const data = await response.json()
   console.log('data', data);
@@ -62,7 +62,7 @@ async function secondICAO() {
   let name = localStorage.getItem("textvalue");
   let icao = document.getElementById("search").value
   console.log(icao)
-  const response = await fetch('http://127.0.0.1:3070/location?nimi='+ name + '&icao=' + icao);
+  const response = await fetch('http://127.0.0.1:1029/nextlocation?nimi='+ name + '&icao=' + icao);
   console.log('response', response)
   const icao_data = await response.json()
   console.log('data', icao_data);
@@ -73,7 +73,7 @@ async function secondICAO() {
   var polyline = L.polyline(latlangs, {color: 'red'}).addTo(map);
   // zoom the map to the polyline
   map.fitBounds(polyline.getBounds());
-  const database = await fetch('http://127.0.0.1:3078/location?nimi='+ name + '&icao=' + icao);
+  const database = await fetch('http://127.0.0.1:1029/nextlocation?nimi='+ name + '&icao=' + icao);
   budgetMain()
   weatherMain()
   budgetMainWin()
@@ -83,7 +83,7 @@ Iflocal()
 
 
 async function budget(nimi){
-  const response = await fetch('http://127.0.0.1:3099/co2_budget/'+ nimi);
+  const response = await fetch('http://127.0.0.1:1029/budget/'+ nimi);
   console.log('response', response)
   const dataC02 = await response.json()
   console.log('data', dataC02);
@@ -116,7 +116,7 @@ function popup(){
 
 async function restart(){
   let name = localStorage.getItem("textvalue");
-  const restart = await fetch('http://127.0.0.1:3033/sql/' + name);
+  const restart = await fetch('http://127.0.0.1:1029/restart/' + name);
   window.location.href="http://localhost:63342/ClearSkies_H-ryhm%C3%A4/HTML/dashboard.html#";
   localStorage.removeItem('thunderstrom')
   localStorage.removeItem('drizzle')
@@ -132,7 +132,7 @@ async function restart(){
                    Weather Card
 ===================================================*/
 async function weather(nimi){
-  const response = await fetch('http://127.0.0.1:3678/saa/'+ nimi);
+  const response = await fetch('http://127.0.0.1:1029/saa/'+ nimi);
   console.log('response', response)
   const weather = await response.json()
   console.log('data', weather);
@@ -243,7 +243,7 @@ function poista(){
 }
 
 async function saaWin(nimi){
-  const response = await fetch('http://127.0.0.1:2078/location/' + nimi);
+  const response = await fetch('http://127.0.0.1:1029/winner/' + nimi);
   console.log('response', response)
   const saa = await response.json()
   console.log('data', saa);

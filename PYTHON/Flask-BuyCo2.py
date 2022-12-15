@@ -737,7 +737,6 @@ def weathercard():
 
 @app.route('/saa/<name>')
 def code(name):
-    global response_json
     try:
         sql = "select goal_id from goal_reached"
         sql += " where game_id = '" + id_find(name) + "'" + 'order by jarjestys'

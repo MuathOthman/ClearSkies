@@ -1,5 +1,5 @@
 async function getAirportData(nimi){
-  const response = await fetch('http://127.0.0.1:3060/location/'+ nimi);
+  const response = await fetch('http://127.0.0.1:1029/location/'+ nimi);
   console.log('response', response)
   const data = await response.json()
   console.log('data', data);
