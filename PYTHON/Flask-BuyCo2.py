@@ -679,7 +679,7 @@ def weatherFlask(name):
     return response
 
 
-@app.route('/weathercard')
+@app.route('/weathercard/')
 def weathercard():
     try:
         args = request.args
