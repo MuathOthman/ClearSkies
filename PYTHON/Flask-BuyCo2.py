@@ -16,7 +16,7 @@ def connect_db():
         autocommit=True
     )
 
-
+# Game-lists
 samples = []
 location_lista = []
 city_lista = []
@@ -26,6 +26,7 @@ saa = []
 id_lista = [1]
 
 
+# First product-card
 def first(nimi):
     sql = "SELECT money FROM game"
     sql += " where screen_name = '" + nimi + "'"
@@ -34,7 +35,7 @@ def first(nimi):
     tulos = kursori.fetchall()
     print(tulos[0])
     for i in tulos:
-        if i[0] > 100 or i[0] == 100:
+        if i[0] > 50 or i[0] == 50:
             sql = "update game set money = money - '" + "50" + "'"
             sql += " WHERE screen_name= '" + nimi + "'"
             sql1 = "update game set co2_budget = co2_budget + '" + "25" + "'"
@@ -51,6 +52,7 @@ def first(nimi):
             return {'empty_pockets': "You dont have enough money!"}
 
 
+# Second product-card
 def second(nimi):
     sql = "SELECT money FROM game"
     sql += " where screen_name = '" + nimi + "'"
@@ -76,6 +78,7 @@ def second(nimi):
             return {'empty_pockets': "You dont have enough money!"}
 
 
+# Third product-card
 def third(nimi):
     sql = "SELECT money FROM game"
     sql += " where screen_name = '" + nimi + "'"
@@ -101,6 +104,7 @@ def third(nimi):
             return {'empty_pockets': "You dont have enough money!"}
 
 
+# Fourth product-card
 def fourth(nimi):
     sql = "SELECT money FROM game"
     sql += " where screen_name = '" + nimi + "'"
@@ -126,6 +130,7 @@ def fourth(nimi):
             return {'empty_pockets': "You dont have enough money!"}
 
 
+# Fifth product-card
 def fifth(nimi):
     sql = "SELECT money FROM game"
     sql += " where screen_name = '" + nimi + "'"
@@ -151,6 +156,7 @@ def fifth(nimi):
             return {'empty_pockets': "You dont have enough money!"}
 
 
+# Sixth product-card
 def sixth(nimi):
     sql = "SELECT money FROM game"
     sql += " where screen_name = '" + nimi + "'"
@@ -176,6 +182,7 @@ def sixth(nimi):
             return {'empty_pockets': "You dont have enough money!"}
 
 
+# Flight page location
 def location(name):
     sql = "SELECT latitude_deg, longitude_deg FROM airport, game"
     sql += " where location = ident and screen_name = '" + name + "'"
@@ -193,6 +200,7 @@ def location(name):
         return {'wrong_name': "Give me a correct name"}
 
 
+# Printing CO2-budget to the dashboard
 def co2budget(name):
     sql = f"select co2_consumed, co2_budget from game where screen_name ='{name}'"
     cursor = connection.cursor()
@@ -206,6 +214,7 @@ def co2budget(name):
         return {"Error": "Give me a correct name"}
 
 
+# Airport search for airport page
 def airportSearch(nimi):
     sql = "select airport.name, airport.ident from country inner join airport "
     sql += " on airport.iso_country = country.iso_country where country.name = '" + nimi + "' and scheduled_service = 'yes'"
@@ -227,6 +236,7 @@ def airportSearch(nimi):
         return {'wrong_country': "Give me a correct country!"}
 
 
+# Printing winners to the leaderboard
 def leaderboard():
     samples = []
     sql = "select screen_name, count(*), co2_consumed from game, goal_reached where id = game_id group by co2_consumed ASC having (count(*)=4)"
@@ -248,6 +258,7 @@ def leaderboard():
     return Response(response=response_json, status=200, mimetype="application/json")
 
 
+# Checks if name already exists in database
 def login(name):
     sql = f"select screen_name from game where screen_name= '{name}'"
     cursor = connection.cursor()
@@ -257,9 +268,8 @@ def login(name):
         return {"correct": result_set[0]}
     else:
         return {"Error": "Give me a correct name"}
-    return result_set[0]
 
-
+# Printing wallet to the dashboard
 def wallet(name):
     sql = f"select money from game where screen_name ='{name}'"
     cursor = connection.cursor()
@@ -270,7 +280,7 @@ def wallet(name):
     else:
         return {"Error": "Give me a correct name"}
 
-
+# Calculates the distance between two icao codes
 def calculator(nimi):
     sql = "SELECT latitude_deg, longitude_deg FROM airport, game"
     sql += " where location = ident and screen_name = '" + nimi + "'"
@@ -291,6 +301,7 @@ def calculator(nimi):
     kursori2.execute(sql)
     tulos2 = kursori2.fetchall()
 
+# The calculation of CO2 emissions for different airplane types
     from geopy.distance import geodesic
     newport_ri = tulos[0]
     cleveland_oh = tulos1[0]
@@ -310,6 +321,7 @@ def calculator(nimi):
             return str(int(large))
 
 
+# Updates CO2 consumed column after a round
 def co2_increase(nimi):
     sql = "update game set co2_consumed = co2_consumed + '" + calculator(nimi) + "'"
     sql += " WHERE screen_name= '" + nimi + "'"
@@ -317,7 +329,7 @@ def co2_increase(nimi):
     kursori.execute(sql)
     return
 
-
+# Function to travel to next location available
 def next_location():
     args = request.args
     nimi = args.get("nimi")
@@ -346,6 +358,7 @@ def next_location():
         return Response(response=response_json, status=200, mimetype="application/json")
 
 
+# Checks if user already exists in database during registration and checks if icao code is valid
 def user_check(user, icao):
     sql = "select screen_name from game"
     kursori = connection.cursor()
@@ -365,6 +378,7 @@ def user_check(user, icao):
         return {'new': 'welcome to clearskies'}
 
 
+# Creates a new account to database
 def newaccount(user, icao):
     sql = "INSERT INTO game (id, co2_consumed, co2_budget, location, screen_name, money)  "
     sql += "VALUES ('" + id() + "', '0', '0', '" + icao + "', '" + user + "', '0')"
@@ -373,7 +387,7 @@ def newaccount(user, icao):
     kursori.execute(sql)
     create_budget(user)
 
-
+# Creates a new id every time a new user is created
 def id():
     testi = []
     sql = "select id from game;"
@@ -390,7 +404,7 @@ def id():
             # print(i)
             return i
 
-
+# Creates a random CO2 budget for a new user
 def create_budget(user):
     import random
     random_budjetti = random.randint(3917, 7834)
@@ -402,7 +416,7 @@ def create_budget(user):
     tulos = kursori.fetchall()
     return
 
-
+# Finds players id
 def id_find(name):
     testi = []
     sql = "select id from game "
@@ -416,7 +430,7 @@ def id_find(name):
             testi.append(str(rivi[0]))
         return str(rivi[0])
 
-
+# Resets player's data
 def restart(name):
     sql = "UPDATE game SET co2_consumed = '0', co2_budget= '0', location = 'efhk', money= '0'"
     sql += " WHERE screen_name= '" + name + "'"
@@ -430,6 +444,7 @@ def restart(name):
     kursori.execute(sql1)
 
 
+# Brings current weather using API to dashboard
 def weather(name):
     sql = "SELECT location FROM game"
     sql += " WHERE screen_name= '" + name + "'"
@@ -466,7 +481,7 @@ def weather(name):
     response_json = json.dumps(answer)
     return Response(response=response_json, status=200, mimetype="application/json")
 
-
+#
 def weather_id(saa):
     sql = "select id from goal "
     sql += "where main = '" + saa + "'"
@@ -492,7 +507,7 @@ def name_id(nimi):
             testi.append(str(rivi[0]))
     return str(rivi[0])
 
-
+# Brings the latest achieved weather id
 def order_id():
     testi = []
     sql = "select jarjestys from goal_reached;"
@@ -504,7 +519,7 @@ def order_id():
             summa = rivi[-1] + 1
             return str(summa)
 
-
+# Adds into goal_reached table reached weather conditions
 def push(nimi):
     sql = "INSERT INTO `goal_reached`"
     sql += "VALUES ('" + name_id(nimi) + "', '" + str(saa_id[-1]) + "', '" + str(id_lista[-1]) + "')"
@@ -517,14 +532,14 @@ def push(nimi):
     tulos = kursori.fetchall()
     weatherachieved(nimi)
 
-
+# Adding money to the database
 def addmoney(nimi):
-    sql = "update game set money = money + '" + '50' + "'"  # Adding the amount into sql
+    sql = "update game set money = money + '" + '50' + "'"
     sql += " WHERE screen_name= '" + nimi + "'"
     kursori = connection.cursor()
     kursori.execute(sql)
 
-
+# Adds money from collected weather conditions into sql
 def weatherachieved(nimi):
     sql = "select main from goal left join goal_reached on goal.id = goal_id left join game on game.id = game_id where screen_name ='" + nimi + "'"
     kursori = connection.cursor()
