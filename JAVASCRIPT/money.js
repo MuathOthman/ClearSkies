@@ -11,4 +11,4 @@ async function main() {
   document.querySelector('#balance').innerHTML = JSON.stringify(budget.money) + '$';
 }
 
-main();
+setTimeout(main, 90)

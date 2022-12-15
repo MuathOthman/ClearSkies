@@ -4,7 +4,7 @@ document.getElementById('namehtml').innerHTML=localStorage.getItem("textvalue");
 async function getAirportData(icao){
   const response = await fetch('http://127.0.0.1:1029/weather/'+ icao);
   console.log('response', response)
-  const data = await response.json()
+  const data = response.json()
   console.log('data', data);
   return data
 }
@@ -23,7 +23,7 @@ async function main() {
   renderHTML(aiportData);
 }
 
-main()
+
 
 
 async function budget(name){
@@ -46,6 +46,9 @@ async function main1() {
   console.log('Ariport data:', aiportData);
   renderHTML1(aiportData);
 }
-  main1()
+
   console.log('Ohjelma jatkuu');
 
+main()
+
+setTimeout(main1, 80)

@@ -31,4 +31,6 @@ async function main() {
   console.log('Location data:', locationData);
   renderHTML(locationData);
 }
-  main()
+
+
+setTimeout(main, 100)

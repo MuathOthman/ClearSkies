@@ -679,7 +679,7 @@ def weatherFlask(name):
     return response
 
 
-@app.route('/weathercard/')
+@app.route('/weathercard')
 def weathercard():
     try:
         args = request.args
@@ -751,7 +751,6 @@ def code(name):
                 print(i)
                 response_json = json.dumps(saa_json)
             return Response(response=response_json, status=200, mimetype="application/json")
-        return {'novalue': "no weather reached"}
     except ValueError:
         text = "Invalid input value, a not number"
         return Response(response=text, status=400)
