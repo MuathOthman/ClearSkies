@@ -62,7 +62,7 @@ async function secondICAO() {
   let name = localStorage.getItem("textvalue");
   let icao = document.getElementById("search").value
   console.log(icao)
-  const response = await fetch('http://127.0.0.1:1029/nextlocation?nimi='+ name + '&icao=' + icao);
+  const response = await fetch('http://127.0.0.1:1029/nextlocation?name='+ name + '&icao=' + icao);
   console.log('response', response)
   const icao_data = await response.json()
   console.log('data', icao_data);
@@ -73,7 +73,7 @@ async function secondICAO() {
   var polyline = L.polyline(latlangs, {color: 'red'}).addTo(map);
   // zoom the map to the polyline
   map.fitBounds(polyline.getBounds());
-  const database = await fetch('http://127.0.0.1:1029/weathercard/?nimi='+ name + '&icao=' + icao);
+  const database = await fetch('http://127.0.0.1:1029/weathercard/?name='+ name + '&icao=' + icao);
   setTimeout(budgetMain, 90)
   setTimeout(weatherMain, 120)
   setTimeout(budgetMainWin, 140)

@@ -403,7 +403,7 @@ def newaccount(user, icao):
 # Creates a new id every time a new user is created
 def id():
     test = []
-    sql = "select id from game;"
+    sql = "SELECT id FROM game ORDER BY id DESC LIMIT 1"
     cursor = connection.cursor()
     cursor.execute(sql)
     result_set = cursor.fetchall()
@@ -412,7 +412,8 @@ def id():
             add = row[0] + 1
             test.append(str(add))
             for i in test:
-                return i
+                return str(i)
+        print(test)
 
 
 # Creates a random CO2 budget for a new user
@@ -557,7 +558,7 @@ def addmoney(name):
 
 # Adds money from collected weather conditions into sql
 def weatherachieved(name):
-    sql = "select main from goal left join goal_reached on goal.id = goal_id left join game on game.id = game_id where screen_name ='" + nimi + "'"
+    sql = "select main from goal left join goal_reached on goal.id = goal_id left join game on game.id = game_id where screen_name ='" + name + "'"
     cursor = connection.cursor()
     cursor.execute(sql)
     result_set = cursor.fetchall()
@@ -769,15 +770,15 @@ def weathercard():
 @app.route('/saa/<name>')
 def code(name):
     try:
-        sql = "select goal_id from goal_reached"
-        sql += " where game_id = '" + id_find(name) + "'" + 'order by jarjestys'
+        sql = "SELECT goal_id FROM goal_reached"
+        sql += " where game_id = '" + id_find(name) + "'" + 'ORDER BY jarjestys DESC LIMIT 1'
         print(sql)
         cursor = connection.cursor()
         cursor.execute(sql)
         result_set = cursor.fetchall()
         if cursor.rowcount > 0:
             for i in result_set:
-                saa_json = {"saa": i[-1]}
+                saa_json = {"saa": i[0]}
                 print('alkaa')
                 print(i)
                 response_json = json.dumps(saa_json)

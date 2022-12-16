@@ -22,7 +22,7 @@ async function newone(event) {
     alert('Incorrect ICAO-Code!');
   }
   else {
-     window.location.href = 'http://localhost:63342/ClearSkies_game/HTML/dashboard.html?';
+     window.location.href = 'http://localhost:63342/ClearSkies_H-ryhm%C3%A4/HTML/dashboard.html';
      localStorage.setItem('textvalue', user);
   }
 }
