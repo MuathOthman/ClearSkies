@@ -2,7 +2,7 @@ async function olduser(username) {
   const response = await fetch('http://127.0.0.1:1029/login/' + username);
   console.log('response', response);
   const data = await response.json();
-  console.log('data', data);
+  console.log('Old User data', data);
   return data;
 }
 

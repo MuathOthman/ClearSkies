@@ -2,7 +2,7 @@ async function getAirportData(nimi){
   const response = await fetch('http://127.0.0.1:1029/location/'+ nimi);
   console.log('response', response)
   const data = await response.json()
-  console.log('data', data);
+  console.log('Location data', data);
   return data
 }
 
@@ -20,7 +20,7 @@ function renderHTML(data) {
     /*===================================================
                       MARKER
     ===================================================*/
-    var singleMarker = L.marker([data['Latitude'], data['Longitude']]);
+    const singleMarker = L.marker([data['Latitude'], data['Longitude']]);
     console.log(singleMarker)
     singleMarker.addTo(map);
 }
@@ -28,7 +28,7 @@ function renderHTML(data) {
 async function main() {
   let name = localStorage.getItem("textvalue");
   const locationData = await getAirportData(name);
-  console.log('Location data:', locationData);
+  console.log('Next Location data:', locationData);
   renderHTML(locationData);
 }
 

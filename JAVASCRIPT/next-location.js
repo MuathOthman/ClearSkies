@@ -1,7 +1,7 @@
 const latlangs = []
 const id = []
-var map = L.map('map').setView([60.1699,24.9384], 14);
-var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+let map = L.map('map').setView([60.1699,24.9384], 14);
+let osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 });
 osm.addTo(map);
@@ -26,7 +26,7 @@ async function getAirportData(nimi){
   const response = await fetch('http://127.0.0.1:1029/location/'+ nimi);
   console.log('response', response)
   const data = await response.json()
-  console.log('data', data);
+  console.log('Location data', data);
   return data
 }
 
@@ -41,7 +41,7 @@ function renderHTML(data) {
 /*===================================================
                   Location-Marker
 ===================================================*/
-    var singleMarker = L.marker([data['Latitude'], data['Longitude']]);
+    let singleMarker = L.marker([data['Latitude'], data['Longitude']]);
     map.panTo(new L.LatLng(data['Latitude'], data['Longitude']));
     console.log(singleMarker)
     singleMarker.addTo(map);
@@ -86,7 +86,7 @@ async function budget(nimi){
   const response = await fetch('http://127.0.0.1:1029/budget/'+ nimi);
   console.log('response', response)
   const dataC02 = await response.json()
-  console.log('data', dataC02);
+  console.log('Budget data', dataC02);
   return dataC02
 }
 
@@ -135,7 +135,7 @@ async function weather(nimi){
   const response = await fetch('http://127.0.0.1:1029/saa/'+ nimi);
   console.log('response', response)
   const weather = await response.json()
-  console.log('data', weather);
+  console.log('Weather data', weather);
   return weather
 }
 
@@ -246,7 +246,7 @@ async function saaWin(nimi){
   const response = await fetch('http://127.0.0.1:1029/winner/' + nimi);
   console.log('response', response)
   const saa = await response.json()
-  console.log('data', saa);
+  console.log('Player data', saa);
   return saa
 }
 

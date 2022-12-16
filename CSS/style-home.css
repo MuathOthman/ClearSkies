@@ -190,6 +190,7 @@ aside .sidebar a span{
     transition: all 300ms ease;
 }
 
+
 aside .sidebar a:last-child {
     position: absolute;
     bottom: 6rem;

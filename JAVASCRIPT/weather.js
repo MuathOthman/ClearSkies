@@ -1,8 +1,9 @@
+/* TEST CODE */
 async function getAirportData(icao){
   const response = await fetch('http://127.0.0.1:1029/weather/'+ icao);
   console.log('response', response)
   const data = await response.json()
-  console.log('data', data);
+  console.log('Icao data', data);
   return data
 }
 
@@ -16,7 +17,7 @@ function renderHTML(data) {
 async function main() {
   let icaoInput = localStorage.getItem("textvalue");
   const aiportData = await getAirportData(icaoInput);
-  console.log('Ariport data:', aiportData);
+  console.log('Airport data:', aiportData);
   renderHTML(aiportData);
 }
   main()

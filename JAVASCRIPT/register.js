@@ -2,7 +2,7 @@ async function newuser(user, icao) {
   const response = await fetch('http://127.0.0.1:1029/signup/' + user + '/' + icao);
   console.log('response', response);
   const data = await response.json();
-  console.log('data', data);
+  console.log('Player data', data);
   return data;
 }
 
@@ -12,13 +12,13 @@ async function newone(event) {
   const icao = document.getElementById('icao').value;
   const user = document.getElementById('user').value;
   const username = await newuser(user);
-  const hasbulla = username.old
+  const oldusername = username.old
   const airport = await newuser(user, icao);
-  const khabib = airport.icao
-  if (hasbulla) {
+  const wrongicao = airport.icao
+  if (oldusername) {
       alert('Username already taken!');
   }
-  else if (khabib) {
+  else if (wrongicao) {
     alert('Incorrect ICAO-Code!');
   }
   else {

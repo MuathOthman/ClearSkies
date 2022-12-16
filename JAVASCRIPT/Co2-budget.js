@@ -1,8 +1,10 @@
+/* TEST CODE */
+
 async function budget(name){
   const response = await fetch('http://127.0.0.1:1029/budget/' + name);
   console.log('response', response)
   const data = await response.json()
-  console.log('data', data);
+  console.log('Budget data', data);
   return data
 }
 
@@ -15,8 +17,7 @@ async function main() {
   let icaoInput = localStorage.getItem("textvalue");
   console.log(icaoInput)
   const aiportData = await budget(icaoInput);
-  console.log('Ariport data:', aiportData);
+  console.log('Airport data:', aiportData);
   renderHTML(aiportData);
 }
   main()
-  console.log('Ohjelma jatkuu');
