@@ -25,6 +25,26 @@ saa_id = []
 saa = []
 id_lista = [1]
 
+class Airplane:
+    def __init__(self, name,  range, co2):
+        self.name = name
+        self.range = range
+        self.co2 = co2
+
+
+# Updates CO2 consumed column after a round
+    def co2increase(self, etaisuus, nimi):
+        consumed = (self.co2 * etaisuus)/1000
+        calculator = str(consumed)
+        print(calculator)
+        sql = "update game set co2_consumed = co2_consumed + '" + calculator + "'"
+        sql += " WHERE screen_name= '" + nimi + "'"
+        kursori = connection.cursor()
+        kursori.execute(sql)
+
+atr72 = Airplane('atr72', 1500, 50)
+b737 = Airplane('b737', 4800, 100)
+A350 = Airplane('A350', 30000, 150)
 
 # First product-card
 def first(nimi):
@@ -309,25 +329,16 @@ def calculator(nimi):
     etaisuus = geodesic(newport_ri, cleveland_oh).kilometers
     list1.append(etaisuus)
     for i in list1:
+        print('Etäisyys:')
         print(i)
         if i < 1500:
-            small = (i * 50) / 1000
-            return str(int(small))
+            atr72.co2increase(i, nimi)
         elif i < 4800:
-            medium = (i * 100) / 1000
-            return str(int(medium))
+            b737.co2increase(i, nimi)
         else:
-            large = (i * 150) / 1000
-            return str(int(large))
+            A350.co2increase(i, nimi)
 
 
-# Updates CO2 consumed column after a round
-def co2_increase(nimi):
-    sql = "update game set co2_consumed = co2_consumed + '" + calculator(nimi) + "'"
-    sql += " WHERE screen_name= '" + nimi + "'"
-    kursori = connection.cursor()
-    kursori.execute(sql)
-    return
 
 # Function to travel to next location available
 def next_location():
@@ -343,7 +354,6 @@ def next_location():
         return {'wrong_icao': "Give a correct & available icao-code!"}
     else:
         location_lista.append(icao)
-    co2_increase(nimi)
     calculator(nimi)
     sql = "SELECT latitude_deg, longitude_deg FROM airport"
     sql += " where ident = '" + icao + "'"
