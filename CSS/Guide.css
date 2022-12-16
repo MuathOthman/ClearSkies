@@ -40,8 +40,8 @@ html {
 }
 
 body{
-    width: 100vw;
-    height: 100vw;
+    width: auto;
+    height: auto;
     font-family: poppins, sans-serif;
     font-size: 0.88rem;
     background: var(--color-background);
@@ -130,31 +130,23 @@ aside{
 }
 
 aside .top{
-    background: none;
-    display: flex;
+    background: transparent;
     align-items: center;
     justify-content: space-between;
     margin-top: 1.4rem;
+
 }
 
-aside .logo{
-    display: flex;
-    gap: 0.8rem;
+aside .top .logo img {
+    width: 6rem;
+    height: 6rem;
+    margin-left: 4rem;
 }
 
 aside .logo img {
     width: 80px;
     height: 80px;
     margin-left: 65%;
-    margin-top: 25%;
-}
-
-.logout span{
-    margin-top: -80%;
-}
-
-.logout h3{
-    margin-top: -80%;
 }
 
 aside .close{
@@ -208,7 +200,7 @@ aside .sidebar a span{
 
 aside .sidebar a:last-child {
     position: absolute;
-    bottom: 2rem;
+    bottom: 6rem;
     width: 100%;
 }
 
@@ -377,50 +369,35 @@ main .insights small {
 }
 
 main .map {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 
 main .map h1{
-    text-shadow:
-    0 1px 0 #ccc,
-    0 2px 0 #c9c9c9,
-    0 3px 0 #bbb,
-    0 4px 0 #b9b9b9,
-    0 5px 0 #aaa,
-    0 6px 1px rgba(0,0,0,.1),
-    0 0 5px rgba(0,0,0,.1),
-    0 1px 3px rgba(0,0,0,.3),
-    0 3px 5px rgba(0,0,0,.2),
-    0 5px 10px rgba(0,0,0,.25),
-    0 10px 10px rgba(0,0,0,.2),
-    0 20px 20px rgba(0,0,0,.15);
+    font-size: 20px;
+    margin-bottom: 1.2rem;
 }
 
+main .map .test p{
+    color: #333333;
+}
 
 main .map h2{
     margin-bottom: 0.8rem;
 }
 
 main .map table {
+    width: 60rem;
     background: var(--color-white);
-    width: 100%;
     border-radius: var(--card-border-radius);
     padding: var(--card-padding);
     text-align: center;
     box-shadow: var(--box-shadow);
     transition: all 300ms ease;
-    height: 47rem;
+    height: 25rem;
 }
 
 main .map table:hover {
     box-shadow: none;
-}
-main .map table th h3{
-    font-weight: 700;
-    font-size: medium;
-    inline: block;
-    margin-top: 3rem;
-
 }
 
 main table tbody td {

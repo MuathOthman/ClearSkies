@@ -73,7 +73,7 @@ async function secondICAO() {
   var polyline = L.polyline(latlangs, {color: 'red'}).addTo(map);
   // zoom the map to the polyline
   map.fitBounds(polyline.getBounds());
-  const database = await fetch('http://127.0.0.1:1029/weathercard/?name='+ name + '&icao=' + icao);
+  const database = await fetch('http://127.0.0.1:1029/weathercard?name='+ name + '&icao=' + icao);
   setTimeout(budgetMain, 90)
   setTimeout(weatherMain, 120)
   setTimeout(budgetMainWin, 140)

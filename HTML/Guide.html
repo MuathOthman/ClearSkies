@@ -21,10 +21,6 @@
       </div>
     </div>
     <div class="sidebar">
-      <div class="info">
-         <span class="material-icons-sharp">emoji_people</span>
-         <p id="namehtml"></p>
-      </div>
       <a href="dashboard.html">
         <span class="material-icons-sharp">dashboard</span>
         <h3>Dashboard</h3>
@@ -64,9 +60,28 @@
               <thead>
               <tr class="test">
                 <th><h1>Welcome to ClearSkies!</h1>
-                <h3>Käyttäjä aloittaa pelin, jolloin käyttäjälle annetaan kaksi vaihtoehtoa.
-Käyttäjä joko luo uuden käyttäjän keksimällään käyttäjätunnuksella tai jatkaa pelaamista jo aikaisemmin luodulla käyttäjällä. Kaikki peliin liittyvä tieto ja info on pelaajan saatavilla sivupalkista läpi pelin. Jos pelaaja valitsee vanhan käyttäjän ja kirjautuu sisään, hänelle tulostetaan tietokannan avulla jo saavutetut säätilat ja jäljellä oleva CO2-päästökiintiö. Pelin tavoite on matkustaa eri lentokenttien välillä ja saavuttaa kahdeksan eri säätilaa aiheuttaen mahdollisimman vähän CO2-päästöjä. Peli määrittää pelaajalle CO2-päästöjen ylärajan. Lentokenttien välillä matkustetaan syöttämällä lentokenttien ICAO-koodeja. Pelaajan saapuessa kohteeseen pelaajan on mahdollista saavuttaa uusi säätila. Mikäli säätila on jo saavutettu aikaisemmin pelaaja ei kerää kyseistä säätilaa uudelleen vaan joutuu siirtymään seuraavaan kohteeseen. Jokaisella lennolla pelaajan CO2-kapasiteetti pienenee riippuen matkan pituudesta sekä lentokoneen mallista, joka määräytyy matkan pituuden mukaan. Jos CO2-päästöt ylittyvät peli loppuu (game over), joka tarkoittaa, että peli on hävitty ja pelaaja joutuu aloittamaan alusta. Pelaajalla on kuitenkin mahdollisuus ostaa lisää CO2-kapasiteettia ansaitsemallaan rahalla, jonka avulla hän pystyy mahdollisesti lentämään lisää. Pelaajan rahan määrä kasvaa aina 50 dollarilla uuden säätilan keräämisen myötä. Pelaaja voi vaihtaa 50 dollaria 25 kilogrammaan CO2-kapasiteettia. Kun pelaaja tavoittaa säätilat ylittämättä CO2-kapasiteettia, läpäisee hän pelin. Tämän jälkeen ohjelma tulostaa pelaajalle hänen saavutuksensa pelin sijoituslistaan muita pelaajia vastaan. Sijoituslista järjestää pelaajat hiilidioksidipäästöjen mukaan: ensimmäinen sijoitus pienin CO2 kulutus + kahdeksan säätilaa.
-</h3></th>
+                <p>Käyttäjän aloittaessa pelin hänelle annetaan kaksi vaihtoehtoa. Käyttäjä joko luo uuden käyttäjän keksimällään käyttäjätunnuksella tai jatkaa pelaamista jo aikaisemmin luodulla käyttäjällä.
+                    Pelaaja siis joko kirjautuu sisään tai rekisteröityy uutena pelaajana.
+                    Uusi pelaaja määrittää itselleen lentoaseman, josta hän haluaa aloittaa.
+                    Kaikki peliin liittyvä tieto ja info on saatavilla sivupalkista läpi pelin.<br/>
+
+                    <br/>Pelin tavoite on matkustaa eri lentokenttien välillä saavuttaen viisi eri
+                    säätilaa aiheuttaen mahdollisimman vähän CO2-päästöjä. Peli arpoo jokaiselle
+                    pelaajalle yksilöllisen CO2-budjetin, jonka rajoissa pelaajan tulee läpäistä peli
+                    voittaakseen. Lentokenttien välillä matkustetaan syöttämällä lentokenttien
+                    ICAO-koodeja. Pelaajan saapuessa kohteeseen pelaajan on mahdollista saavuttaa
+                    uusi säätila. Mikäli säätila on jo saavutettu aikaisemmin pelaaja ei kerää kyseistä
+                    säätilaa uudelleen vaan joutuu siirtymään seuraavaan kohteeseen.<br/><br/>
+                    Jokaisella lennolla pelaajan CO2-päästöt nousevat riippuen matkan pituudesta.
+                    Pelaaja ansaitsee 50 dollaria jokaisesta keräämästään säätilasta.
+                    Ansaitsemallaan rahalla pelaaja voi tarpeen vaatiessa ostaa lisää CO2-kiintiötä.
+                    Osto tapahtuu vasemman sivupalkin Store-osiossa. Pelaajan tulee ennakoida
+                    CO2-budjetin loppumista etukäteen, sillä oston tulee tapahtua ennen viimeisintä
+                    lentokertaa.<br/><br/> Pelaajan ylittäessä asetetun CO2-rajan peli loppuu (GAME OVER).
+                    Kun pelaaja saavuttaa kaikki viisi säätilaa ylittämättä asetettua
+                    CO2-rajaa, voittaa hän pelin ja sijoittuu sijoituslistaan (leaderboard)
+                    muita pelaajia vastaan.</p></th>
+
               </tr>
               </thead>
               <tbody id="data-output">

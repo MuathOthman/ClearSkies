@@ -47,8 +47,8 @@ html {
 }
 
 body{
-    width: 100vw;
-    height: 100vw;
+    width: auto;
+    height: auto;
     font-family: poppins, sans-serif;
     font-size: 0.88rem;
     background: var(--color-background);
@@ -137,16 +137,17 @@ aside{
 }
 
 aside .top{
-    background: white;
-    display: flex;
+    background: transparent;
     align-items: center;
     justify-content: space-between;
     margin-top: 1.4rem;
+
 }
 
-aside .logo{
-    display: flex;
-    gap: 0.8rem;
+aside .top .logo img {
+    width: 6rem;
+    height: 6rem;
+    margin-left: 4rem;
 }
 
 aside .logo img {
@@ -157,6 +158,7 @@ aside .logo img {
 aside .close{
     display: none;
 }
+
 
 /* Sidebar */
 aside .sidebar{
@@ -189,7 +191,7 @@ aside .sidebar a span{
 
 aside .sidebar a:last-child {
     position: absolute;
-    bottom: 2rem;
+    bottom: 6rem;
     width: 100%;
 }
 
